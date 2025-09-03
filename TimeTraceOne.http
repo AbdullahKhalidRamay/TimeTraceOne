@@ -1,0 +1,6 @@
+@TimeTraceOne_HostAddress = http://localhost:5155
+
+GET {{TimeTraceOne_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

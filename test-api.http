@@ -1,0 +1,69 @@
+### Test TimeFlow API
+
+### 1. Login with default user
+POST https://localhost:5001/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "john.doe@timeflow.com",
+  "password": "password123"
+}
+
+### 2. Get current user (requires token from login)
+GET https://localhost:5001/api/auth/me
+Authorization: Bearer {{auth_token}}
+
+### 3. Get time entries (requires token)
+GET https://localhost:5001/api/time-entries
+Authorization: Bearer {{auth_token}}
+
+### 4. Create a time entry (requires token)
+POST https://localhost:5001/api/time-entries
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+  "date": "2024-01-15",
+  "actualHours": 8.0,
+  "billableHours": 7.5,
+  "task": "Development work on new feature",
+  "projectDetails": {
+    "category": "project",
+    "name": "Mobile App",
+    "task": "Feature Development",
+    "description": "Working on new user authentication feature"
+  },
+  "isBillable": true
+}
+
+### 5. Get weekly time entries (requires token)
+GET https://localhost:5001/api/time-entries/weekly/2024-01-15
+Authorization: Bearer {{auth_token}}
+
+### 6. Create weekly bulk time entries (requires token)
+POST https://localhost:5001/api/time-entries/weekly-bulk
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+  "weekStart": "2024-01-15",
+  "entries": [
+    {
+      "projectId": null,
+      "productId": null,
+      "departmentId": null,
+      "dailyHours": {
+        "2024-01-15": {
+          "actualHours": 8.0,
+          "billableHours": 7.5,
+          "task": "Monday development work"
+        },
+        "2024-01-16": {
+          "actualHours": 8.0,
+          "billableHours": 8.0,
+          "task": "Tuesday development work"
+        }
+      }
+    }
+  ]
+}

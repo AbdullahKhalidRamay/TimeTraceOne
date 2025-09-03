@@ -1,0 +1,219 @@
+2025-09-04 01:45:30.608 +05:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-09-04 01:45:30.866 +05:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [TimeFlow_Dev] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;
+2025-09-04 01:45:31.011 +05:00 [INF] Executed DbCommand (132ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+DROP DATABASE [TimeFlow_Dev];
+2025-09-04 01:46:11.172 +05:00 [INF] Executed DbCommand (464ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [TimeFlow_Dev];
+2025-09-04 01:46:11.410 +05:00 [INF] Executed DbCommand (150ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [TimeFlow_Dev] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-09-04 01:46:11.475 +05:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-09-04 01:46:11.575 +05:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2025-09-04 01:46:11.597 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-09-04 01:46:11.641 +05:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-09-04 01:46:11.671 +05:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-09-04 01:46:11.717 +05:00 [INF] Applying migration '20250903204549_InitialCreate'.
+2025-09-04 01:46:11.868 +05:00 [INF] Executed DbCommand (73ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] uniqueidentifier NOT NULL,
+    [Name] nvarchar(100) NOT NULL,
+    [Email] nvarchar(255) NOT NULL,
+    [PasswordHash] nvarchar(255) NOT NULL,
+    [Role] nvarchar(max) NOT NULL,
+    [JobTitle] nvarchar(100) NULL,
+    [AvailableHours] decimal(5,2) NOT NULL,
+    [IsActive] bit NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2025-09-04 01:46:11.901 +05:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Departments] (
+    [Id] uniqueidentifier NOT NULL,
+    [Name] nvarchar(100) NOT NULL,
+    [DepartmentDescription] nvarchar(2000) NULL,
+    [IsBillable] bit NOT NULL,
+    [Status] nvarchar(max) NOT NULL,
+    [CreatedBy] uniqueidentifier NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Departments] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Departments_Users_CreatedBy] FOREIGN KEY ([CreatedBy]) REFERENCES [Users] ([Id]) ON DELETE NO ACTION
+);
+2025-09-04 01:46:11.929 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Products] (
+    [Id] uniqueidentifier NOT NULL,
+    [Name] nvarchar(100) NOT NULL,
+    [ProductDescription] nvarchar(2000) NULL,
+    [IsBillable] bit NOT NULL,
+    [Status] nvarchar(max) NOT NULL,
+    [CreatedBy] uniqueidentifier NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Products] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Products_Users_CreatedBy] FOREIGN KEY ([CreatedBy]) REFERENCES [Users] ([Id]) ON DELETE NO ACTION
+);
+2025-09-04 01:46:11.968 +05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Projects] (
+    [Id] uniqueidentifier NOT NULL,
+    [Name] nvarchar(100) NOT NULL,
+    [Description] nvarchar(2000) NULL,
+    [ProjectType] nvarchar(max) NOT NULL,
+    [ClientName] nvarchar(100) NULL,
+    [ClientEmail] nvarchar(255) NULL,
+    [IsBillable] bit NOT NULL,
+    [Status] nvarchar(max) NOT NULL,
+    [CreatedBy] uniqueidentifier NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Projects] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Projects_Users_CreatedBy] FOREIGN KEY ([CreatedBy]) REFERENCES [Users] ([Id]) ON DELETE NO ACTION
+);
+2025-09-04 01:46:12.009 +05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [TimeEntries] (
+    [Id] uniqueidentifier NOT NULL,
+    [UserId] uniqueidentifier NOT NULL,
+    [Date] datetime2 NOT NULL,
+    [ActualHours] decimal(5,2) NOT NULL,
+    [BillableHours] decimal(5,2) NOT NULL,
+    [TotalHours] decimal(5,2) NOT NULL,
+    [AvailableHours] decimal(5,2) NOT NULL,
+    [Task] nvarchar(1000) NOT NULL,
+    [ProjectDetails] nvarchar(4000) NOT NULL,
+    [IsBillable] bit NOT NULL,
+    [Status] nvarchar(max) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_TimeEntries] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_TimeEntries_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2025-09-04 01:46:12.056 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Teams] (
+    [Id] uniqueidentifier NOT NULL,
+    [Name] nvarchar(100) NOT NULL,
+    [Description] nvarchar(2000) NULL,
+    [DepartmentId] uniqueidentifier NOT NULL,
+    [LeaderId] uniqueidentifier NULL,
+    [CreatedBy] uniqueidentifier NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Teams] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Teams_Departments_DepartmentId] FOREIGN KEY ([DepartmentId]) REFERENCES [Departments] ([Id]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_Teams_Users_CreatedBy] FOREIGN KEY ([CreatedBy]) REFERENCES [Users] ([Id]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_Teams_Users_LeaderId] FOREIGN KEY ([LeaderId]) REFERENCES [Users] ([Id]) ON DELETE NO ACTION
+);
+2025-09-04 01:46:12.090 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [ApprovalHistory] (
+    [Id] uniqueidentifier NOT NULL,
+    [EntryId] uniqueidentifier NOT NULL,
+    [PreviousStatus] nvarchar(20) NOT NULL,
+    [NewStatus] nvarchar(20) NOT NULL,
+    [Message] nvarchar(1000) NULL,
+    [ApprovedBy] uniqueidentifier NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_ApprovalHistory] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_ApprovalHistory_TimeEntries_EntryId] FOREIGN KEY ([EntryId]) REFERENCES [TimeEntries] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_ApprovalHistory_Users_ApprovedBy] FOREIGN KEY ([ApprovedBy]) REFERENCES [Users] ([Id]) ON DELETE NO ACTION
+);
+2025-09-04 01:46:12.146 +05:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Notifications] (
+    [Id] uniqueidentifier NOT NULL,
+    [UserId] uniqueidentifier NOT NULL,
+    [Title] nvarchar(200) NOT NULL,
+    [Message] nvarchar(2000) NOT NULL,
+    [Type] nvarchar(max) NOT NULL,
+    [IsRead] bit NOT NULL,
+    [RelatedEntryId] uniqueidentifier NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Notifications] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Notifications_TimeEntries_RelatedEntryId] FOREIGN KEY ([RelatedEntryId]) REFERENCES [TimeEntries] ([Id]) ON DELETE SET NULL,
+    CONSTRAINT [FK_Notifications_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE NO ACTION
+);
+2025-09-04 01:46:12.192 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [TeamDepartments] (
+    [TeamId] uniqueidentifier NOT NULL,
+    [DepartmentId] uniqueidentifier NOT NULL,
+    CONSTRAINT [PK_TeamDepartments] PRIMARY KEY ([TeamId], [DepartmentId]),
+    CONSTRAINT [FK_TeamDepartments_Departments_DepartmentId] FOREIGN KEY ([DepartmentId]) REFERENCES [Departments] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_TeamDepartments_Teams_TeamId] FOREIGN KEY ([TeamId]) REFERENCES [Teams] ([Id]) ON DELETE CASCADE
+);
+2025-09-04 01:46:12.236 +05:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [TeamMembers] (
+    [TeamId] uniqueidentifier NOT NULL,
+    [UserId] uniqueidentifier NOT NULL,
+    [JoinedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_TeamMembers] PRIMARY KEY ([TeamId], [UserId]),
+    CONSTRAINT [FK_TeamMembers_Teams_TeamId] FOREIGN KEY ([TeamId]) REFERENCES [Teams] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_TeamMembers_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2025-09-04 01:46:12.272 +05:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [TeamProducts] (
+    [TeamId] uniqueidentifier NOT NULL,
+    [ProductId] uniqueidentifier NOT NULL,
+    CONSTRAINT [PK_TeamProducts] PRIMARY KEY ([TeamId], [ProductId]),
+    CONSTRAINT [FK_TeamProducts_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_TeamProducts_Teams_TeamId] FOREIGN KEY ([TeamId]) REFERENCES [Teams] ([Id]) ON DELETE CASCADE
+);
+2025-09-04 01:46:12.290 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [TeamProjects] (
+    [TeamId] uniqueidentifier NOT NULL,
+    [ProjectId] uniqueidentifier NOT NULL,
+    CONSTRAINT [PK_TeamProjects] PRIMARY KEY ([TeamId], [ProjectId]),
+    CONSTRAINT [FK_TeamProjects_Projects_ProjectId] FOREIGN KEY ([ProjectId]) REFERENCES [Projects] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_TeamProjects_Teams_TeamId] FOREIGN KEY ([TeamId]) REFERENCES [Teams] ([Id]) ON DELETE CASCADE
+);
+2025-09-04 01:46:12.306 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_ApprovalHistory_ApprovedBy] ON [ApprovalHistory] ([ApprovedBy]);
+2025-09-04 01:46:12.330 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_ApprovalHistory_EntryId] ON [ApprovalHistory] ([EntryId]);
+2025-09-04 01:46:12.344 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Departments_CreatedBy] ON [Departments] ([CreatedBy]);
+2025-09-04 01:46:12.359 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Notifications_RelatedEntryId] ON [Notifications] ([RelatedEntryId]);
+2025-09-04 01:46:12.374 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Notifications_UserId] ON [Notifications] ([UserId]);
+2025-09-04 01:46:12.391 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Products_CreatedBy] ON [Products] ([CreatedBy]);
+2025-09-04 01:46:12.415 +05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Projects_CreatedBy] ON [Projects] ([CreatedBy]);
+2025-09-04 01:46:12.437 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_TeamDepartments_DepartmentId] ON [TeamDepartments] ([DepartmentId]);
+2025-09-04 01:46:12.510 +05:00 [INF] Executed DbCommand (66ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_TeamMembers_UserId] ON [TeamMembers] ([UserId]);
+2025-09-04 01:46:12.528 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_TeamProducts_ProductId] ON [TeamProducts] ([ProductId]);
+2025-09-04 01:46:12.556 +05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_TeamProjects_ProjectId] ON [TeamProjects] ([ProjectId]);
+2025-09-04 01:46:12.589 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Teams_CreatedBy] ON [Teams] ([CreatedBy]);
+2025-09-04 01:46:12.619 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Teams_DepartmentId] ON [Teams] ([DepartmentId]);
+2025-09-04 01:46:12.643 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Teams_LeaderId] ON [Teams] ([LeaderId]);
+2025-09-04 01:46:12.667 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_TimeEntries_UserId] ON [TimeEntries] ([UserId]);
+2025-09-04 01:46:12.689 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Users_Email] ON [Users] ([Email]);
+2025-09-04 01:46:12.773 +05:00 [INF] Executed DbCommand (67ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250903204549_InitialCreate', N'8.0.0');

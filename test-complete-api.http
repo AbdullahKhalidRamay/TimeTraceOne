@@ -1,0 +1,471 @@
+### TimeFlow Complete API Test File
+
+### 1. Authentication
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "john.doe@timeflow.com",
+  "password": "password123"
+}
+
+### 2. Get Current User
+GET {{baseUrl}}/api/auth/me
+Authorization: Bearer {{authToken}}
+
+### 3. User Management
+### Get All Users (Manager/Owner only)
+GET {{baseUrl}}/api/users?page=1&limit=20
+Authorization: Bearer {{authToken}}
+
+### Get User by ID
+GET {{baseUrl}}/api/users/{{userId}}
+Authorization: Bearer {{authToken}}
+
+### Create User (Manager/Owner only)
+POST {{baseUrl}}/api/users
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "name": "Jane Smith",
+  "email": "jane.smith@timeflow.com",
+  "password": "password123",
+  "role": "Employee",
+  "jobTitle": "Developer",
+  "availableHours": 8.0
+}
+
+### Update User
+PUT {{baseUrl}}/api/users/{{userId}}
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "jobTitle": "Senior Developer",
+  "availableHours": 8.5
+}
+
+### Get User Statistics
+GET {{baseUrl}}/api/users/{{userId}}/statistics?startDate=2024-01-01&endDate=2024-01-31
+Authorization: Bearer {{authToken}}
+
+### Get User Weekly Report
+GET {{baseUrl}}/api/users/{{userId}}/reports/weekly?weekStart=2024-01-15
+Authorization: Bearer {{authToken}}
+
+### Get User Monthly Report
+GET {{baseUrl}}/api/users/{{userId}}/reports/monthly?month=2024-01
+Authorization: Bearer {{authToken}}
+
+### Get User Available Hours
+GET {{baseUrl}}/api/users/{{userId}}/available-hours?date=2024-01-15
+Authorization: Bearer {{authToken}}
+
+### Get User Projects
+GET {{baseUrl}}/api/users/{{userId}}/projects
+Authorization: Bearer {{authToken}}
+
+### 4. Project Management
+### Get All Projects
+GET {{baseUrl}}/api/projects?page=1&limit=20
+Authorization: Bearer {{authToken}}
+
+### Get Project by ID
+GET {{baseUrl}}/api/projects/{{projectId}}
+Authorization: Bearer {{authToken}}
+
+### Create Project (Manager/Owner only)
+POST {{baseUrl}}/api/projects
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "name": "Mobile App Development",
+  "description": "Developing a new mobile application",
+  "projectType": "Development",
+  "clientName": "TechCorp",
+  "clientEmail": "contact@techcorp.com",
+  "isBillable": true
+}
+
+### Update Project (Manager/Owner only)
+PUT {{baseUrl}}/api/projects/{{projectId}}
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "description": "Updated project description",
+  "status": "Active"
+}
+
+### Delete Project (Manager/Owner only)
+DELETE {{baseUrl}}/api/projects/{{projectId}}
+Authorization: Bearer {{authToken}}
+
+### Get User Associated Projects
+GET {{baseUrl}}/api/projects/user/{{userId}}
+Authorization: Bearer {{authToken}}
+
+### 5. Team Management
+### Get All Teams
+GET {{baseUrl}}/api/teams?page=1&limit=20
+Authorization: Bearer {{authToken}}
+
+### Get Team by ID
+GET {{baseUrl}}/api/teams/{{teamId}}
+Authorization: Bearer {{authToken}}
+
+### Create Team (Manager/Owner only)
+POST {{baseUrl}}/api/teams
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "name": "Development Team",
+  "description": "Software development team",
+  "departmentId": "{{departmentId}}",
+  "leaderId": "{{leaderId}}"
+}
+
+### Update Team (Manager/Owner only)
+PUT {{baseUrl}}/api/teams/{{teamId}}
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "description": "Updated team description"
+}
+
+### Add Member to Team (Manager/Owner only)
+POST {{baseUrl}}/api/teams/{{teamId}}/members
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "userId": "{{newMemberId}}"
+}
+
+### Remove Member from Team (Manager/Owner only)
+DELETE {{baseUrl}}/api/teams/{{teamId}}/members/{{userId}}
+Authorization: Bearer {{authToken}}
+
+### Update Team Leader (Manager/Owner only)
+PUT {{baseUrl}}/api/teams/{{teamId}}/leader
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "leaderId": "{{newLeaderId}}"
+}
+
+### Associate Team with Project (Manager/Owner only)
+POST {{baseUrl}}/api/teams/{{teamId}}/projects
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "projectId": "{{projectId}}"
+}
+
+### Associate Team with Product (Manager/Owner only)
+POST {{baseUrl}}/api/teams/{{teamId}}/products
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "productId": "{{productId}}"
+}
+
+### Associate Team with Department (Manager/Owner only)
+POST {{baseUrl}}/api/teams/{{teamId}}/departments
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "departmentId": "{{departmentId}}"
+}
+
+### Get User Teams
+GET {{baseUrl}}/api/teams/user/{{userId}}
+Authorization: Bearer {{authToken}}
+
+### 6. Product Management
+### Get All Products
+GET {{baseUrl}}/api/products?page=1&limit=20
+Authorization: Bearer {{authToken}}
+
+### Get Product by ID
+GET {{baseUrl}}/api/products/{{productId}}
+Authorization: Bearer {{authToken}}
+
+### Create Product (Manager/Owner only)
+POST {{baseUrl}}/api/products
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "name": "Software License",
+  "productDescription": "Annual software license subscription",
+  "isBillable": true
+}
+
+### Update Product (Manager/Owner only)
+PUT {{baseUrl}}/api/products/{{productId}}
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "productDescription": "Updated product description"
+}
+
+### Delete Product (Manager/Owner only)
+DELETE {{baseUrl}}/api/products/{{productId}}
+Authorization: Bearer {{authToken}}
+
+### 7. Department Management
+### Get All Departments
+GET {{baseUrl}}/api/departments?page=1&limit=20
+Authorization: Bearer {{authToken}}
+
+### Get Department by ID
+GET {{baseUrl}}/api/departments/{{departmentId}}
+Authorization: Bearer {{authToken}}
+
+### Create Department (Manager/Owner only)
+POST {{baseUrl}}/api/departments
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "name": "Engineering",
+  "departmentDescription": "Software engineering department",
+  "isBillable": true
+}
+
+### Update Department (Manager/Owner only)
+PUT {{baseUrl}}/api/departments/{{departmentId}}
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "departmentDescription": "Updated department description"
+}
+
+### Delete Department (Manager/Owner only)
+DELETE {{baseUrl}}/api/departments/{{departmentId}}
+Authorization: Bearer {{authToken}}
+
+### 8. Time Entry Management
+### Get All Time Entries
+GET {{baseUrl}}/api/timeentries?page=1&limit=20
+Authorization: Bearer {{authToken}}
+
+### Get Time Entry by ID
+GET {{baseUrl}}/api/timeentries/{{timeEntryId}}
+Authorization: Bearer {{authToken}}
+
+### Create Time Entry
+POST {{baseUrl}}/api/timeentries
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "userId": "{{userId}}",
+  "date": "2024-01-15",
+  "actualHours": 8.0,
+  "billableHours": 7.5,
+  "task": "Development work",
+  "projectDetails": "{\"projectId\": \"{{projectId}}\", \"projectName\": \"Mobile App\"}",
+  "isBillable": true
+}
+
+### Update Time Entry
+PUT {{baseUrl}}/api/timeentries/{{timeEntryId}}
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "actualHours": 8.5,
+  "billableHours": 8.0,
+  "task": "Updated development work"
+}
+
+### Delete Time Entry
+DELETE {{baseUrl}}/api/timeentries/{{timeEntryId}}
+Authorization: Bearer {{authToken}}
+
+### Get Weekly Time Entries
+GET {{baseUrl}}/api/timeentries/weekly/2024-01-15
+Authorization: Bearer {{authToken}}
+
+### Create Weekly Bulk Time Entries
+POST {{baseUrl}}/api/timeentries/weekly-bulk
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "userId": "{{userId}}",
+  "weekStart": "2024-01-15",
+  "entries": [
+    {
+      "date": "2024-01-15",
+      "actualHours": 8.0,
+      "billableHours": 7.5,
+      "task": "Development work"
+    },
+    {
+      "date": "2024-01-16",
+      "actualHours": 8.0,
+      "billableHours": 8.0,
+      "task": "Code review"
+    }
+  ]
+}
+
+### Approve Time Entry (Manager/Owner only)
+POST {{baseUrl}}/api/timeentries/{{timeEntryId}}/approve
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "message": "Approved - good work"
+}
+
+### Reject Time Entry (Manager/Owner only)
+POST {{baseUrl}}/api/timeentries/{{timeEntryId}}/reject
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "message": "Please provide more details"
+}
+
+### 9. Notifications
+### Get User Notifications
+GET {{baseUrl}}/api/notifications?page=1&limit=20
+Authorization: Bearer {{authToken}}
+
+### Get Notification by ID
+GET {{baseUrl}}/api/notifications/{{notificationId}}
+Authorization: Bearer {{authToken}}
+
+### Mark Notification as Read
+PUT {{baseUrl}}/api/notifications/{{notificationId}}/read
+Authorization: Bearer {{authToken}}
+
+### Mark All Notifications as Read
+PUT {{baseUrl}}/api/notifications/mark-all-read
+Authorization: Bearer {{authToken}}
+
+### Delete Notification
+DELETE {{baseUrl}}/api/notifications/{{notificationId}}
+Authorization: Bearer {{authToken}}
+
+### 10. Reports & Analytics
+### Get User Report
+GET {{baseUrl}}/api/reports/users/{{userId}}?startDate=2024-01-01&endDate=2024-01-31
+Authorization: Bearer {{authToken}}
+
+### Get User Weekly Report
+GET {{baseUrl}}/api/reports/users/{{userId}}/weekly?weekStart=2024-01-15
+Authorization: Bearer {{authToken}}
+
+### Get User Monthly Report
+GET {{baseUrl}}/api/reports/users/{{userId}}/monthly?month=2024-01
+Authorization: Bearer {{authToken}}
+
+### Get Team Report (Manager/Owner only)
+GET {{baseUrl}}/api/reports/teams/{{teamId}}?startDate=2024-01-01&endDate=2024-01-31
+Authorization: Bearer {{authToken}}
+
+### Get Team Weekly Report (Manager/Owner only)
+GET {{baseUrl}}/api/reports/teams/{{teamId}}/weekly?weekStart=2024-01-15
+Authorization: Bearer {{authToken}}
+
+### Get System Overview (Manager/Owner only)
+GET {{baseUrl}}/api/reports/system?startDate=2024-01-01&endDate=2024-01-31
+Authorization: Bearer {{authToken}}
+
+### Get Department Performance (Manager/Owner only)
+GET {{baseUrl}}/api/reports/departments?startDate=2024-01-01&endDate=2024-01-31
+Authorization: Bearer {{authToken}}
+
+### Get Project Performance (Manager/Owner only)
+GET {{baseUrl}}/api/reports/projects?startDate=2024-01-01&endDate=2024-01-31
+Authorization: Bearer {{authToken}}
+
+### Export CSV Report (Manager/Owner only)
+POST {{baseUrl}}/api/reports/export/csv
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "reportType": "user",
+  "userId": "{{userId}}",
+  "startDate": "2024-01-01",
+  "endDate": "2024-01-31",
+  "format": "csv"
+}
+
+### Export PDF Report (Manager/Owner only)
+POST {{baseUrl}}/api/reports/export/pdf
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "reportType": "user",
+  "userId": "{{userId}}",
+  "startDate": "2024-01-01",
+  "endDate": "2024-01-31",
+  "format": "pdf"
+}
+
+### 11. Validation
+### Validate Time Entry
+POST {{baseUrl}}/api/validation/time-entry
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "date": "2024-01-15",
+  "actualHours": 8.0,
+  "billableHours": 7.5,
+  "userId": "{{userId}}"
+}
+
+### Get User Available Hours
+GET {{baseUrl}}/api/validation/users/{{userId}}/available-hours?date=2024-01-15
+Authorization: Bearer {{authToken}}
+
+### Validate Team Access
+POST {{baseUrl}}/api/validation/teams/{{teamId}}/access
+Authorization: Bearer {{authToken}}
+
+### Validate Project Access
+POST {{baseUrl}}/api/validation/projects/{{projectId}}/access
+Authorization: Bearer {{authToken}}
+
+### 12. Logout
+POST {{baseUrl}}/api/auth/logout
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refreshToken}}"
+}
+
+### Environment Variables
+@baseUrl = http://localhost:5001
+@authToken = your_jwt_token_here
+@userId = your_user_id_here
+@projectId = your_project_id_here
+@teamId = your_team_id_here
+@departmentId = your_department_id_here
+@productId = your_product_id_here
+@timeEntryId = your_time_entry_id_here
+@notificationId = your_notification_id_here
+@refreshToken = your_refresh_token_here
+@leaderId = your_leader_id_here
+@newMemberId = your_new_member_id_here
+@newLeaderId = your_new_leader_id_here

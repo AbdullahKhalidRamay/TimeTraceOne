@@ -1,0 +1,106 @@
+2025-09-04 02:15:27.554 +05:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-09-04 02:15:27.633 +05:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-09-04 02:15:27.651 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-09-04 02:15:27.872 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 02:15:27.881 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Departments] AS [d]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 02:15:27.886 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Projects] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 02:15:27.891 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Teams] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 02:15:27.893 +05:00 [INF] Database seeded successfully
+2025-09-04 02:15:27.937 +05:00 [INF] User profile is available. Using 'C:\Users\PMLS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-09-04 02:15:28.357 +05:00 [INF] Request starting HTTP/2 GET https://localhost:44396/swagger - null null
+2025-09-04 02:15:28.457 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-04 02:15:28.458 +05:00 [INF] Hosting environment: Development
+2025-09-04 02:15:28.458 +05:00 [INF] Content root path: D:\project\TimeTraceOne
+2025-09-04 02:15:29.248 +05:00 [INF] No cached response available for this request.
+2025-09-04 02:15:29.461 +05:00 [INF] HTTP GET /swagger responded 404 in 185.7989 ms
+2025-09-04 02:15:29.464 +05:00 [INF] The response could not be cached for this request.
+2025-09-04 02:15:29.508 +05:00 [INF] Request finished HTTP/2 GET https://localhost:44396/swagger - 404 null null 1163.5179ms
+2025-09-04 02:15:29.517 +05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44396/swagger, Response status code: 404
+2025-09-04 02:15:36.075 +05:00 [INF] Request starting HTTP/2 GET https://localhost:44396/swagger - null null
+2025-09-04 02:15:36.089 +05:00 [INF] No cached response available for this request.
+2025-09-04 02:15:36.094 +05:00 [INF] HTTP GET /swagger responded 404 in 4.1356 ms
+2025-09-04 02:15:36.094 +05:00 [INF] The response could not be cached for this request.
+2025-09-04 02:15:36.100 +05:00 [INF] Request finished HTTP/2 GET https://localhost:44396/swagger - 404 null null 23.7409ms
+2025-09-04 02:15:36.105 +05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44396/swagger, Response status code: 404
+2025-09-04 02:15:37.397 +05:00 [INF] Request starting HTTP/2 GET https://localhost:44396/swagger - null null
+2025-09-04 02:15:37.405 +05:00 [INF] No cached response available for this request.
+2025-09-04 02:15:37.411 +05:00 [INF] HTTP GET /swagger responded 404 in 4.9634 ms
+2025-09-04 02:15:37.411 +05:00 [INF] The response could not be cached for this request.
+2025-09-04 02:15:37.412 +05:00 [INF] Request finished HTTP/2 GET https://localhost:44396/swagger - 404 null null 15.6787ms
+2025-09-04 02:15:37.413 +05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44396/swagger, Response status code: 404
+2025-09-04 02:15:49.850 +05:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-09-04 02:15:49.922 +05:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-09-04 02:15:49.937 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-09-04 02:15:50.159 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 02:15:50.169 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Departments] AS [d]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 02:15:50.174 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Projects] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 02:15:50.181 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Teams] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 02:15:50.183 +05:00 [INF] Database seeded successfully
+2025-09-04 02:15:50.238 +05:00 [INF] User profile is available. Using 'C:\Users\PMLS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-09-04 02:15:50.599 +05:00 [INF] Request starting HTTP/2 GET https://localhost:44396/swagger - null null
+2025-09-04 02:15:50.739 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-04 02:15:50.741 +05:00 [INF] Hosting environment: Development
+2025-09-04 02:15:50.741 +05:00 [INF] Content root path: D:\project\TimeTraceOne
+2025-09-04 02:15:50.875 +05:00 [INF] No cached response available for this request.
+2025-09-04 02:15:50.992 +05:00 [INF] HTTP GET /swagger responded 404 in 99.1624 ms
+2025-09-04 02:15:50.993 +05:00 [INF] The response could not be cached for this request.
+2025-09-04 02:15:51.036 +05:00 [INF] Request finished HTTP/2 GET https://localhost:44396/swagger - 404 null null 446.0879ms
+2025-09-04 02:15:51.041 +05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44396/swagger, Response status code: 404
