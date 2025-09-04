@@ -7,8 +7,8 @@ public interface ITimeEntryService
     Task<List<TimeEntryDto>> GetTimeEntriesAsync(TimeEntryFilterDto filter);
     Task<TimeEntryDto?> GetTimeEntryByIdAsync(Guid id);
     Task<TimeEntryDto> CreateTimeEntryAsync(CreateTimeEntryDto dto, Guid userId);
-    Task<TimeEntryDto> UpdateTimeEntryAsync(Guid id, UpdateTimeEntryDto dto, Guid userId);
-    Task DeleteTimeEntryAsync(Guid id, Guid userId);
+    Task<TimeEntryDto> UpdateTimeEntryAsync(Guid id, UpdateTimeEntryDto dto, Guid userId, string userRole);
+    Task DeleteTimeEntryAsync(Guid id, Guid userId, string userRole);
     Task<WeeklyBulkResponseDto> CreateWeeklyBulkAsync(WeeklyBulkRequestDto dto, Guid userId);
     Task<WeeklyTimeEntriesDto> GetWeeklyTimeEntriesAsync(string weekStart, Guid? userId = null);
     Task<TimeEntryDto> ApproveTimeEntryAsync(Guid id, string? message, Guid approverId);

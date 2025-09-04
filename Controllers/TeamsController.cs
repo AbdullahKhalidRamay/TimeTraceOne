@@ -307,6 +307,59 @@ public class TeamsController : ControllerBase
         }
     }
     
+    /// <summary>
+    /// Get team statistics
+    /// </summary>
+    [HttpGet("{id:guid}/statistics")]
+    public async Task<ActionResult<object>> GetTeamStatistics(Guid id)
+    {
+        try
+        {
+            // For now, return a simple statistics object since the service method doesn't exist
+            var statistics = new
+            {
+                TeamId = id,
+                TotalMembers = 0,
+                TotalProjects = 0,
+                TotalHours = 0.0m,
+                IsActive = true
+            };
+            return Ok(ApiResponse<object>.Success(statistics));
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error getting team statistics for {TeamId}", id);
+            return StatusCode(500, ApiResponse<object>.Error("Internal server error"));
+        }
+    }
+    
+    /// <summary>
+    /// Get team reports
+    /// </summary>
+    [HttpGet("{id:guid}/reports")]
+    public async Task<ActionResult<object>> GetTeamReports(Guid id, [FromQuery] string startDate, [FromQuery] string endDate)
+    {
+        try
+        {
+            // For now, return a simple report object since the service method doesn't exist
+            var report = new
+            {
+                TeamId = id,
+                StartDate = startDate,
+                EndDate = endDate,
+                TotalMembers = 0,
+                TotalHours = 0.0m,
+                TotalProjects = 0
+            };
+            return Ok(ApiResponse<object>.Success(report));
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error getting team reports for {TeamId}", id);
+            return StatusCode(500, ApiResponse<object>.Error("Internal server error"));
+        }
+    }
+    
     private Guid GetCurrentUserId()
     {
         var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;

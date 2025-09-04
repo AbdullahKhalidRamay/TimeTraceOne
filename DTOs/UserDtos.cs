@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using TimeTraceOne.Models;
 
 namespace TimeTraceOne.DTOs;
@@ -19,6 +20,7 @@ public class CreateUserDto
     public string Password { get; set; } = string.Empty;
     
     [Required]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public UserRole Role { get; set; } = UserRole.Employee;
     
     [MaxLength(100)]
@@ -42,6 +44,7 @@ public class UpdateUserDto
     [Range(0, 24)]
     public decimal? AvailableHours { get; set; }
     
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public UserRole? Role { get; set; }
     
     public bool? IsActive { get; set; }
@@ -54,6 +57,7 @@ public class UserListDto : BaseDto
 {
     public string Name { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public UserRole Role { get; set; }
     public string? JobTitle { get; set; }
     public decimal AvailableHours { get; set; }
@@ -70,6 +74,7 @@ public class UserDetailDto : UserListDto
 
 public class UserFilterDto
 {
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public UserRole? Role { get; set; }
     public Guid? DepartmentId { get; set; }
     public Guid? TeamId { get; set; }

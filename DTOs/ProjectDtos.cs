@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using TimeTraceOne.Models;
 
 namespace TimeTraceOne.DTOs;
@@ -13,6 +14,7 @@ public class CreateProjectDto
     public string? Description { get; set; }
     
     [Required]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public ProjectType ProjectType { get; set; }
     
     [MaxLength(100)]
@@ -36,6 +38,7 @@ public class UpdateProjectDto
     [MaxLength(2000)]
     public string? Description { get; set; }
     
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public ProjectType? ProjectType { get; set; }
     
     [MaxLength(100)]
@@ -47,6 +50,7 @@ public class UpdateProjectDto
     
     public bool? IsBillable { get; set; }
     
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public ProjectStatus? Status { get; set; }
     
     public List<Guid>? DepartmentIds { get; set; }
@@ -57,6 +61,7 @@ public class ProjectDto : BaseDto
 {
     public string Name { get; set; } = string.Empty;
     public string? Description { get; set; }
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public ProjectType ProjectType { get; set; }
     public string? ClientName { get; set; }
     public string? ClientEmail { get; set; }
@@ -73,6 +78,7 @@ public class ProjectDto : BaseDto
 public class ProjectFilterDto
 {
     public bool? IsBillable { get; set; }
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public ProjectStatus? Status { get; set; }
     public Guid? DepartmentId { get; set; }
     public Guid? TeamId { get; set; }
@@ -86,6 +92,7 @@ public class ProjectSummaryDto
     public Guid Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public bool IsBillable { get; set; }
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public ProjectStatus Status { get; set; }
 }
 

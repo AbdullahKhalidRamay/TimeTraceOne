@@ -88,13 +88,17 @@ public class TimeEntryService : ITimeEntryService
         return await GetTimeEntryByIdAsync(timeEntry.Id) ?? throw new InvalidOperationException("Failed to retrieve created time entry");
     }
     
-    public async Task<TimeEntryDto> UpdateTimeEntryAsync(Guid id, UpdateTimeEntryDto dto, Guid userId)
+    public async Task<TimeEntryDto> UpdateTimeEntryAsync(Guid id, UpdateTimeEntryDto dto, Guid userId, string userRole)
     {
         var timeEntry = await _context.TimeEntries
-            .FirstOrDefaultAsync(t => t.Id == id && t.UserId == userId);
+            .FirstOrDefaultAsync(t => t.Id == id);
             
         if (timeEntry == null)
-            throw new InvalidOperationException("Time entry not found or access denied");
+            throw new InvalidOperationException("Time entry not found");
+            
+        // Check if user can update this time entry
+        if (timeEntry.UserId != userId && userRole != "Owner" && userRole != "Manager")
+            throw new InvalidOperationException("Access denied - you can only update your own time entries");
             
         if (dto.ActualHours.HasValue)
             timeEntry.ActualHours = dto.ActualHours.Value;
@@ -121,13 +125,17 @@ public class TimeEntryService : ITimeEntryService
         return await GetTimeEntryByIdAsync(id) ?? throw new InvalidOperationException("Failed to retrieve updated time entry");
     }
     
-    public async Task DeleteTimeEntryAsync(Guid id, Guid userId)
+    public async Task DeleteTimeEntryAsync(Guid id, Guid userId, string userRole)
     {
         var timeEntry = await _context.TimeEntries
-            .FirstOrDefaultAsync(t => t.Id == id && t.UserId == userId);
+            .FirstOrDefaultAsync(t => t.Id == id);
             
         if (timeEntry == null)
-            throw new InvalidOperationException("Time entry not found or access denied");
+            throw new InvalidOperationException("Time entry not found");
+            
+        // Check if user can delete this time entry
+        if (timeEntry.UserId != userId && userRole != "Owner" && userRole != "Manager")
+            throw new InvalidOperationException("Access denied - you can only delete your own time entries");
             
         _context.TimeEntries.Remove(timeEntry);
         await _context.SaveChangesAsync();

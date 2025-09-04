@@ -1,0 +1,1273 @@
+2025-09-04 13:46:14.363 +05:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-09-04 13:46:14.457 +05:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-09-04 13:46:14.486 +05:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-09-04 13:46:14.690 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 13:46:14.708 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Departments] AS [d]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 13:46:14.724 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Projects] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 13:46:14.739 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Teams] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 13:46:14.755 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 13:46:14.803 +05:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[ActualHours], [t].[AvailableHours], [t].[BillableHours], [t].[CreatedAt], [t].[Date], [t].[IsBillable], [t].[ProjectDetails], [t].[Status], [t].[Task], [t].[TotalHours], [t].[UpdatedAt], [t].[UserId]
+FROM [TimeEntries] AS [t]
+2025-09-04 13:46:15.018 +05:00 [INF] Executed DbCommand (26ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [TimeEntries]
+OUTPUT 1
+WHERE [Id] = @p0;
+DELETE FROM [TimeEntries]
+OUTPUT 1
+WHERE [Id] = @p1;
+2025-09-04 13:46:15.072 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p2='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p3='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Boolean), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (Size = 1000), @p10='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p11='?' (DbType = DateTime2), @p12='?' (DbType = Guid), @p13='?' (DbType = Guid), @p14='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p15='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p16='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p17='?' (DbType = DateTime2), @p18='?' (DbType = DateTime2), @p19='?' (DbType = Boolean), @p20='?' (Size = 4000), @p21='?' (Size = 4000), @p22='?' (Size = 1000), @p23='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p24='?' (DbType = DateTime2), @p25='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [TimeEntries] ([Id], [ActualHours], [AvailableHours], [BillableHours], [CreatedAt], [Date], [IsBillable], [ProjectDetails], [Status], [Task], [TotalHours], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12),
+(@p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25);
+2025-09-04 13:46:15.089 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[CreatedAt], [n].[IsRead], [n].[Message], [n].[RelatedEntryId], [n].[Title], [n].[Type], [n].[UpdatedAt], [n].[UserId]
+FROM [Notifications] AS [n]
+2025-09-04 13:46:15.132 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 2000), @p4='?' (DbType = Guid), @p5='?' (Size = 200), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Notifications] ([Id], [CreatedAt], [IsRead], [Message], [RelatedEntryId], [Title], [Type], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2025-09-04 13:46:15.143 +05:00 [INF] Database seeded successfully
+2025-09-04 13:46:15.159 +05:00 [INF] User profile is available. Using 'C:\Users\PMLS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-09-04 13:46:15.227 +05:00 [INF] Now listening on: http://localhost:5155
+2025-09-04 13:46:15.238 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-04 13:46:15.242 +05:00 [INF] Hosting environment: Development
+2025-09-04 13:46:15.244 +05:00 [INF] Content root path: D:\project\TimeTraceOne
+2025-09-04 13:46:28.694 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/users - application/json 139
+2025-09-04 13:46:28.774 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.UsersController.CreateUser (TimeTraceOne)'
+2025-09-04 13:46:28.791 +05:00 [INF] Route matched with {action = "CreateUser", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.UserDetailDto]] CreateUser(TimeTraceOne.DTOs.CreateUserDto) on controller TimeTraceOne.Controllers.UsersController (TimeTraceOne).
+2025-09-04 13:46:28.918 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__dto_Email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @__dto_Email_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 13:46:28.937 +05:00 [INF] Executing BadRequestObjectResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-04 13:46:28.955 +05:00 [INF] Executed action TimeTraceOne.Controllers.UsersController.CreateUser (TimeTraceOne) in 146.1382ms
+2025-09-04 13:46:28.966 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.UsersController.CreateUser (TimeTraceOne)'
+2025-09-04 13:46:28.975 +05:00 [INF] HTTP POST /api/users responded 400 in 247.3610 ms
+2025-09-04 13:46:28.992 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/users - 400 null application/json; charset=utf-8 298.4185ms
+2025-09-04 13:46:36.900 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/auth/login - application/json 53
+2025-09-04 13:46:36.913 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.AuthController.Login (TimeTraceOne)'
+2025-09-04 13:46:36.923 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.ApiResponse`1[TimeTraceOne.DTOs.LoginResponseDto]]] Login(TimeTraceOne.DTOs.LoginRequestDto) on controller TimeTraceOne.Controllers.AuthController (TimeTraceOne).
+2025-09-04 13:46:37.004 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__request_Email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AvailableHours], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0 AND [u].[IsActive] = CAST(1 AS bit)
+2025-09-04 13:46:37.294 +05:00 [INF] User admin@timeflow.com logged in successfully
+2025-09-04 13:46:37.304 +05:00 [INF] Executing OkObjectResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.LoginResponseDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:46:37.321 +05:00 [INF] Executed action TimeTraceOne.Controllers.AuthController.Login (TimeTraceOne) in 390.8637ms
+2025-09-04 13:46:37.331 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.AuthController.Login (TimeTraceOne)'
+2025-09-04 13:46:37.341 +05:00 [INF] HTTP POST /api/auth/login responded 200 in 429.1758 ms
+2025-09-04 13:46:37.351 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/auth/login - 200 null application/json; charset=utf-8 450.5518ms
+2025-09-04 13:47:04.243 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/auth/login - application/json 53
+2025-09-04 13:47:04.253 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.AuthController.Login (TimeTraceOne)'
+2025-09-04 13:47:04.255 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.ApiResponse`1[TimeTraceOne.DTOs.LoginResponseDto]]] Login(TimeTraceOne.DTOs.LoginRequestDto) on controller TimeTraceOne.Controllers.AuthController (TimeTraceOne).
+2025-09-04 13:47:04.274 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__request_Email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AvailableHours], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0 AND [u].[IsActive] = CAST(1 AS bit)
+2025-09-04 13:47:04.511 +05:00 [INF] User admin@timeflow.com logged in successfully
+2025-09-04 13:47:04.514 +05:00 [INF] Executing OkObjectResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.LoginResponseDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:47:04.516 +05:00 [INF] Executed action TimeTraceOne.Controllers.AuthController.Login (TimeTraceOne) in 249.6714ms
+2025-09-04 13:47:04.521 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.AuthController.Login (TimeTraceOne)'
+2025-09-04 13:47:04.525 +05:00 [INF] HTTP POST /api/auth/login responded 200 in 274.4653 ms
+2025-09-04 13:47:04.531 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/auth/login - 200 null application/json; charset=utf-8 287.8559ms
+2025-09-04 13:47:04.541 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/users - application/json 139
+2025-09-04 13:47:04.547 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.UsersController.CreateUser (TimeTraceOne)'
+2025-09-04 13:47:04.548 +05:00 [INF] Route matched with {action = "CreateUser", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.UserDetailDto]] CreateUser(TimeTraceOne.DTOs.CreateUserDto) on controller TimeTraceOne.Controllers.UsersController (TimeTraceOne).
+2025-09-04 13:47:04.561 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__dto_Email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @__dto_Email_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 13:47:04.566 +05:00 [INF] Executing BadRequestObjectResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-04 13:47:04.569 +05:00 [INF] Executed action TimeTraceOne.Controllers.UsersController.CreateUser (TimeTraceOne) in 16.8402ms
+2025-09-04 13:47:04.572 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.UsersController.CreateUser (TimeTraceOne)'
+2025-09-04 13:47:04.573 +05:00 [INF] HTTP POST /api/users responded 400 in 28.3061 ms
+2025-09-04 13:47:04.579 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/users - 400 null application/json; charset=utf-8 37.711ms
+2025-09-04 13:47:15.964 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/users - application/json 139
+2025-09-04 13:47:15.980 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.UsersController.CreateUser (TimeTraceOne)'
+2025-09-04 13:47:15.985 +05:00 [INF] Route matched with {action = "CreateUser", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.UserDetailDto]] CreateUser(TimeTraceOne.DTOs.CreateUserDto) on controller TimeTraceOne.Controllers.UsersController (TimeTraceOne).
+2025-09-04 13:47:16.003 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__dto_Email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @__dto_Email_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 13:47:16.015 +05:00 [INF] Executing BadRequestObjectResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-04 13:47:16.019 +05:00 [INF] Executed action TimeTraceOne.Controllers.UsersController.CreateUser (TimeTraceOne) in 28.1977ms
+2025-09-04 13:47:16.023 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.UsersController.CreateUser (TimeTraceOne)'
+2025-09-04 13:47:16.028 +05:00 [INF] HTTP POST /api/users responded 400 in 49.9757 ms
+2025-09-04 13:47:16.036 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/users - 400 null application/json; charset=utf-8 72.541ms
+2025-09-04 13:47:25.716 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/users - application/json 149
+2025-09-04 13:47:25.724 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.UsersController.CreateUser (TimeTraceOne)'
+2025-09-04 13:47:25.728 +05:00 [INF] Route matched with {action = "CreateUser", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.UserDetailDto]] CreateUser(TimeTraceOne.DTOs.CreateUserDto) on controller TimeTraceOne.Controllers.UsersController (TimeTraceOne).
+2025-09-04 13:47:25.738 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__dto_Email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @__dto_Email_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 13:47:25.912 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p2='?' (DbType = DateTime2), @p3='?' (Size = 255), @p4='?' (DbType = Boolean), @p5='?' (Size = 100), @p6='?' (Size = 100), @p7='?' (Size = 255), @p8='?' (Size = 4000), @p9='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Id], [AvailableHours], [CreatedAt], [Email], [IsActive], [JobTitle], [Name], [PasswordHash], [Role], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+2025-09-04 13:47:25.918 +05:00 [INF] Created user "e598b52f-93d8-430c-a940-fce03008b132" with email testuser11@completelyunique.com
+2025-09-04 13:47:26.045 +05:00 [INF] Executed DbCommand (13ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AvailableHours], [t].[CreatedAt], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt], [t1].[TeamId], [t1].[UserId], [t1].[JoinedAt], [t1].[Id], [t1].[CreatedAt], [t1].[CreatedBy], [t1].[DepartmentId], [t1].[Description], [t1].[LeaderId], [t1].[Name], [t1].[UpdatedAt], [t1].[Id0], [t1].[CreatedAt0], [t1].[CreatedBy0], [t1].[DepartmentDescription], [t1].[IsBillable], [t1].[Name0], [t1].[Status], [t1].[UpdatedAt0]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[AvailableHours], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [t0].[TeamId], [t0].[UserId], [t0].[JoinedAt], [t2].[Id], [t2].[CreatedAt], [t2].[CreatedBy], [t2].[DepartmentId], [t2].[Description], [t2].[LeaderId], [t2].[Name], [t2].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0]
+    FROM [TeamMembers] AS [t0]
+    INNER JOIN [Teams] AS [t2] ON [t0].[TeamId] = [t2].[Id]
+    INNER JOIN [Departments] AS [d] ON [t2].[DepartmentId] = [d].[Id]
+) AS [t1] ON [t].[Id] = [t1].[UserId]
+ORDER BY [t].[Id], [t1].[TeamId], [t1].[UserId], [t1].[Id]
+2025-09-04 13:47:26.079 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.UserDetailDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:47:26.136 +05:00 [INF] Executed action TimeTraceOne.Controllers.UsersController.CreateUser (TimeTraceOne) in 401.9458ms
+2025-09-04 13:47:26.148 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.UsersController.CreateUser (TimeTraceOne)'
+2025-09-04 13:47:26.155 +05:00 [INF] HTTP POST /api/users responded 201 in 431.3841 ms
+2025-09-04 13:47:26.160 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/users - 201 null application/json; charset=utf-8 443.8049ms
+2025-09-04 13:47:43.535 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/projects - application/json 183
+2025-09-04 13:47:43.543 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne)'
+2025-09-04 13:47:43.551 +05:00 [INF] Route matched with {action = "CreateProject", controller = "Projects"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.ProjectDto]] CreateProject(TimeTraceOne.DTOs.CreateProjectDto) on controller TimeTraceOne.Controllers.ProjectsController (TimeTraceOne).
+2025-09-04 13:47:43.570 +05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-09-04 13:47:43.595 +05:00 [INF] Executed action TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne) in 38.7698ms
+2025-09-04 13:47:43.599 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne)'
+2025-09-04 13:47:43.601 +05:00 [INF] HTTP POST /api/projects responded 400 in 59.0610 ms
+2025-09-04 13:47:43.606 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/projects - 400 null application/problem+json; charset=utf-8 70.3972ms
+2025-09-04 13:47:53.613 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/projects - application/json 183
+2025-09-04 13:47:53.620 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne)'
+2025-09-04 13:47:53.726 +05:00 [INF] Route matched with {action = "CreateProject", controller = "Projects"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.ProjectDto]] CreateProject(TimeTraceOne.DTOs.CreateProjectDto) on controller TimeTraceOne.Controllers.ProjectsController (TimeTraceOne).
+2025-09-04 13:47:53.755 +05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-09-04 13:47:53.764 +05:00 [INF] Executed action TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne) in 28.1351ms
+2025-09-04 13:47:53.770 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne)'
+2025-09-04 13:47:53.780 +05:00 [INF] HTTP POST /api/projects responded 400 in 160.8001 ms
+2025-09-04 13:47:53.799 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/projects - 400 null application/problem+json; charset=utf-8 184.5585ms
+2025-09-04 13:50:42.297 +05:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-09-04 13:50:42.371 +05:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-09-04 13:50:42.392 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-09-04 13:50:42.549 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 13:50:42.564 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Departments] AS [d]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 13:50:42.577 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Projects] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 13:50:42.591 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Teams] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 13:50:42.599 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 13:50:42.638 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[ActualHours], [t].[AvailableHours], [t].[BillableHours], [t].[CreatedAt], [t].[Date], [t].[IsBillable], [t].[ProjectDetails], [t].[Status], [t].[Task], [t].[TotalHours], [t].[UpdatedAt], [t].[UserId]
+FROM [TimeEntries] AS [t]
+2025-09-04 13:50:42.814 +05:00 [INF] Executed DbCommand (24ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [TimeEntries]
+OUTPUT 1
+WHERE [Id] = @p0;
+DELETE FROM [TimeEntries]
+OUTPUT 1
+WHERE [Id] = @p1;
+2025-09-04 13:50:42.876 +05:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p2='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p3='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Boolean), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (Size = 1000), @p10='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p11='?' (DbType = DateTime2), @p12='?' (DbType = Guid), @p13='?' (DbType = Guid), @p14='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p15='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p16='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p17='?' (DbType = DateTime2), @p18='?' (DbType = DateTime2), @p19='?' (DbType = Boolean), @p20='?' (Size = 4000), @p21='?' (Size = 4000), @p22='?' (Size = 1000), @p23='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p24='?' (DbType = DateTime2), @p25='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [TimeEntries] ([Id], [ActualHours], [AvailableHours], [BillableHours], [CreatedAt], [Date], [IsBillable], [ProjectDetails], [Status], [Task], [TotalHours], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12),
+(@p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25);
+2025-09-04 13:50:42.893 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[CreatedAt], [n].[IsRead], [n].[Message], [n].[RelatedEntryId], [n].[Title], [n].[Type], [n].[UpdatedAt], [n].[UserId]
+FROM [Notifications] AS [n]
+2025-09-04 13:50:42.935 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Notifications]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-09-04 13:50:42.956 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 2000), @p4='?' (DbType = Guid), @p5='?' (Size = 200), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Notifications] ([Id], [CreatedAt], [IsRead], [Message], [RelatedEntryId], [Title], [Type], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2025-09-04 13:50:42.962 +05:00 [INF] Database seeded successfully
+2025-09-04 13:50:42.979 +05:00 [INF] User profile is available. Using 'C:\Users\PMLS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-09-04 13:50:43.045 +05:00 [INF] Now listening on: http://localhost:5155
+2025-09-04 13:50:43.052 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-04 13:50:43.057 +05:00 [INF] Hosting environment: Development
+2025-09-04 13:50:43.059 +05:00 [INF] Content root path: D:\project\TimeTraceOne
+2025-09-04 13:51:23.987 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/auth/login - application/json 53
+2025-09-04 13:51:24.070 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.AuthController.Login (TimeTraceOne)'
+2025-09-04 13:51:24.085 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.ApiResponse`1[TimeTraceOne.DTOs.LoginResponseDto]]] Login(TimeTraceOne.DTOs.LoginRequestDto) on controller TimeTraceOne.Controllers.AuthController (TimeTraceOne).
+2025-09-04 13:51:24.168 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[@__request_Email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AvailableHours], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0 AND [u].[IsActive] = CAST(1 AS bit)
+2025-09-04 13:51:24.454 +05:00 [INF] User admin@timeflow.com logged in successfully
+2025-09-04 13:51:24.464 +05:00 [INF] Executing OkObjectResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.LoginResponseDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:51:24.504 +05:00 [INF] Executed action TimeTraceOne.Controllers.AuthController.Login (TimeTraceOne) in 406.1915ms
+2025-09-04 13:51:24.511 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.AuthController.Login (TimeTraceOne)'
+2025-09-04 13:51:24.522 +05:00 [INF] HTTP POST /api/auth/login responded 200 in 481.3706 ms
+2025-09-04 13:51:24.535 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/auth/login - 200 null application/json; charset=utf-8 548.679ms
+2025-09-04 13:51:24.543 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/projects - application/json 183
+2025-09-04 13:51:24.589 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne)'
+2025-09-04 13:51:24.600 +05:00 [INF] Route matched with {action = "CreateProject", controller = "Projects"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.ProjectDto]] CreateProject(TimeTraceOne.DTOs.CreateProjectDto) on controller TimeTraceOne.Controllers.ProjectsController (TimeTraceOne).
+2025-09-04 13:51:24.708 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 255), @p2='?' (Size = 100), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Guid), @p5='?' (Size = 2000), @p6='?' (DbType = Boolean), @p7='?' (Size = 100), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Projects] ([Id], [ClientEmail], [ClientName], [CreatedAt], [CreatedBy], [Description], [IsBillable], [Name], [ProjectType], [Status], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2025-09-04 13:51:24.720 +05:00 [INF] Created project "bbf5540a-0fc0-43aa-9a50-48c9af0d2e6d" with name Test Project 8
+2025-09-04 13:51:24.821 +05:00 [INF] Executed DbCommand (12ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[ClientEmail], [t].[ClientName], [t].[CreatedAt], [t].[CreatedBy], [t].[Description], [t].[IsBillable], [t].[Name], [t].[ProjectType], [t].[Status], [t].[UpdatedAt], [t].[Id0], [t].[AvailableHours], [t].[CreatedAt0], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name0], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt0], [t1].[TeamId], [t1].[ProjectId], [t1].[Id], [t1].[CreatedAt], [t1].[CreatedBy], [t1].[DepartmentId], [t1].[Description], [t1].[LeaderId], [t1].[Name], [t1].[UpdatedAt], [t1].[Id0], [t1].[CreatedAt0], [t1].[CreatedBy0], [t1].[DepartmentDescription], [t1].[IsBillable], [t1].[Name0], [t1].[Status], [t1].[UpdatedAt0]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[ClientEmail], [p].[ClientName], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsBillable], [p].[Name], [p].[ProjectType], [p].[Status], [p].[UpdatedAt], [u].[Id] AS [Id0], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt0], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name0], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt0]
+    FROM [Projects] AS [p]
+    INNER JOIN [Users] AS [u] ON [p].[CreatedBy] = [u].[Id]
+    WHERE [p].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [t0].[TeamId], [t0].[ProjectId], [t2].[Id], [t2].[CreatedAt], [t2].[CreatedBy], [t2].[DepartmentId], [t2].[Description], [t2].[LeaderId], [t2].[Name], [t2].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0]
+    FROM [TeamProjects] AS [t0]
+    INNER JOIN [Teams] AS [t2] ON [t0].[TeamId] = [t2].[Id]
+    INNER JOIN [Departments] AS [d] ON [t2].[DepartmentId] = [d].[Id]
+) AS [t1] ON [t].[Id] = [t1].[ProjectId]
+ORDER BY [t].[Id], [t].[Id0], [t1].[TeamId], [t1].[ProjectId], [t1].[Id]
+2025-09-04 13:51:24.842 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.ProjectDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:51:24.865 +05:00 [INF] Executed action TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne) in 257.4292ms
+2025-09-04 13:51:24.878 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne)'
+2025-09-04 13:51:24.885 +05:00 [INF] HTTP POST /api/projects responded 201 in 331.2743 ms
+2025-09-04 13:51:24.891 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/projects - 201 null application/json; charset=utf-8 348.3786ms
+2025-09-04 13:51:35.407 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/projects - application/json 183
+2025-09-04 13:51:35.418 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne)'
+2025-09-04 13:51:35.420 +05:00 [INF] Route matched with {action = "CreateProject", controller = "Projects"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.ProjectDto]] CreateProject(TimeTraceOne.DTOs.CreateProjectDto) on controller TimeTraceOne.Controllers.ProjectsController (TimeTraceOne).
+2025-09-04 13:51:35.429 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 255), @p2='?' (Size = 100), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Guid), @p5='?' (Size = 2000), @p6='?' (DbType = Boolean), @p7='?' (Size = 100), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Projects] ([Id], [ClientEmail], [ClientName], [CreatedAt], [CreatedBy], [Description], [IsBillable], [Name], [ProjectType], [Status], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2025-09-04 13:51:35.435 +05:00 [INF] Created project "a9cbb342-179a-45e1-90c0-4d8e9f7fd8af" with name Test Project 8
+2025-09-04 13:51:35.439 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[ClientEmail], [t].[ClientName], [t].[CreatedAt], [t].[CreatedBy], [t].[Description], [t].[IsBillable], [t].[Name], [t].[ProjectType], [t].[Status], [t].[UpdatedAt], [t].[Id0], [t].[AvailableHours], [t].[CreatedAt0], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name0], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt0], [t1].[TeamId], [t1].[ProjectId], [t1].[Id], [t1].[CreatedAt], [t1].[CreatedBy], [t1].[DepartmentId], [t1].[Description], [t1].[LeaderId], [t1].[Name], [t1].[UpdatedAt], [t1].[Id0], [t1].[CreatedAt0], [t1].[CreatedBy0], [t1].[DepartmentDescription], [t1].[IsBillable], [t1].[Name0], [t1].[Status], [t1].[UpdatedAt0]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[ClientEmail], [p].[ClientName], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsBillable], [p].[Name], [p].[ProjectType], [p].[Status], [p].[UpdatedAt], [u].[Id] AS [Id0], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt0], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name0], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt0]
+    FROM [Projects] AS [p]
+    INNER JOIN [Users] AS [u] ON [p].[CreatedBy] = [u].[Id]
+    WHERE [p].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [t0].[TeamId], [t0].[ProjectId], [t2].[Id], [t2].[CreatedAt], [t2].[CreatedBy], [t2].[DepartmentId], [t2].[Description], [t2].[LeaderId], [t2].[Name], [t2].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0]
+    FROM [TeamProjects] AS [t0]
+    INNER JOIN [Teams] AS [t2] ON [t0].[TeamId] = [t2].[Id]
+    INNER JOIN [Departments] AS [d] ON [t2].[DepartmentId] = [d].[Id]
+) AS [t1] ON [t].[Id] = [t1].[ProjectId]
+ORDER BY [t].[Id], [t].[Id0], [t1].[TeamId], [t1].[ProjectId], [t1].[Id]
+2025-09-04 13:51:35.446 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.ProjectDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:51:35.449 +05:00 [INF] Executed action TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne) in 25.9445ms
+2025-09-04 13:51:35.456 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne)'
+2025-09-04 13:51:35.460 +05:00 [INF] HTTP POST /api/projects responded 201 in 44.4900 ms
+2025-09-04 13:51:35.466 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/projects - 201 null application/json; charset=utf-8 58.603ms
+2025-09-04 13:51:44.214 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/projects - application/json 183
+2025-09-04 13:51:44.222 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne)'
+2025-09-04 13:51:44.225 +05:00 [INF] Route matched with {action = "CreateProject", controller = "Projects"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.ProjectDto]] CreateProject(TimeTraceOne.DTOs.CreateProjectDto) on controller TimeTraceOne.Controllers.ProjectsController (TimeTraceOne).
+2025-09-04 13:51:44.235 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 255), @p2='?' (Size = 100), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Guid), @p5='?' (Size = 2000), @p6='?' (DbType = Boolean), @p7='?' (Size = 100), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Projects] ([Id], [ClientEmail], [ClientName], [CreatedAt], [CreatedBy], [Description], [IsBillable], [Name], [ProjectType], [Status], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2025-09-04 13:51:44.239 +05:00 [INF] Created project "acd1766c-313e-4786-a067-9935eb5b1380" with name Test Project 8
+2025-09-04 13:51:44.246 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[ClientEmail], [t].[ClientName], [t].[CreatedAt], [t].[CreatedBy], [t].[Description], [t].[IsBillable], [t].[Name], [t].[ProjectType], [t].[Status], [t].[UpdatedAt], [t].[Id0], [t].[AvailableHours], [t].[CreatedAt0], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name0], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt0], [t1].[TeamId], [t1].[ProjectId], [t1].[Id], [t1].[CreatedAt], [t1].[CreatedBy], [t1].[DepartmentId], [t1].[Description], [t1].[LeaderId], [t1].[Name], [t1].[UpdatedAt], [t1].[Id0], [t1].[CreatedAt0], [t1].[CreatedBy0], [t1].[DepartmentDescription], [t1].[IsBillable], [t1].[Name0], [t1].[Status], [t1].[UpdatedAt0]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[ClientEmail], [p].[ClientName], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsBillable], [p].[Name], [p].[ProjectType], [p].[Status], [p].[UpdatedAt], [u].[Id] AS [Id0], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt0], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name0], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt0]
+    FROM [Projects] AS [p]
+    INNER JOIN [Users] AS [u] ON [p].[CreatedBy] = [u].[Id]
+    WHERE [p].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [t0].[TeamId], [t0].[ProjectId], [t2].[Id], [t2].[CreatedAt], [t2].[CreatedBy], [t2].[DepartmentId], [t2].[Description], [t2].[LeaderId], [t2].[Name], [t2].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0]
+    FROM [TeamProjects] AS [t0]
+    INNER JOIN [Teams] AS [t2] ON [t0].[TeamId] = [t2].[Id]
+    INNER JOIN [Departments] AS [d] ON [t2].[DepartmentId] = [d].[Id]
+) AS [t1] ON [t].[Id] = [t1].[ProjectId]
+ORDER BY [t].[Id], [t].[Id0], [t1].[TeamId], [t1].[ProjectId], [t1].[Id]
+2025-09-04 13:51:44.252 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.ProjectDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:51:44.255 +05:00 [INF] Executed action TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne) in 26.4103ms
+2025-09-04 13:51:44.260 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne)'
+2025-09-04 13:51:44.266 +05:00 [INF] HTTP POST /api/projects responded 201 in 44.5197 ms
+2025-09-04 13:51:44.270 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/projects - 201 null application/json; charset=utf-8 55.7878ms
+2025-09-04 13:51:59.494 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/timeentries/search?q=development - null null
+2025-09-04 13:51:59.506 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.TimeEntriesController.SearchTimeEntries (TimeTraceOne)'
+2025-09-04 13:51:59.514 +05:00 [INF] Route matched with {action = "SearchTimeEntries", controller = "TimeEntries"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.ApiResponse`1[TimeTraceOne.DTOs.TimeEntrySearchResultDto]]] SearchTimeEntries(System.String, System.Nullable`1[System.Guid], System.String, System.String) on controller TimeTraceOne.Controllers.TimeEntriesController (TimeTraceOne).
+2025-09-04 13:51:59.543 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__query_0_rewritten='?' (Size = 1000), @__query_0_rewritten_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[ActualHours], [t].[AvailableHours], [t].[BillableHours], [t].[CreatedAt], [t].[Date], [t].[IsBillable], [t].[ProjectDetails], [t].[Status], [t].[Task], [t].[TotalHours], [t].[UpdatedAt], [t].[UserId], [u].[Id], [u].[AvailableHours], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt]
+FROM [TimeEntries] AS [t]
+INNER JOIN [Users] AS [u] ON [t].[UserId] = [u].[Id]
+WHERE [t].[Task] LIKE @__query_0_rewritten ESCAPE N'\' OR [t].[ProjectDetails] LIKE @__query_0_rewritten_1 ESCAPE N'\'
+2025-09-04 13:51:59.554 +05:00 [INF] Executing OkObjectResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.TimeEntrySearchResultDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:51:59.574 +05:00 [INF] Executed action TimeTraceOne.Controllers.TimeEntriesController.SearchTimeEntries (TimeTraceOne) in 53.1995ms
+2025-09-04 13:51:59.593 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.TimeEntriesController.SearchTimeEntries (TimeTraceOne)'
+2025-09-04 13:51:59.600 +05:00 [INF] HTTP GET /api/timeentries/search responded 200 in 94.6214 ms
+2025-09-04 13:51:59.605 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/timeentries/search?q=development - 200 null application/json; charset=utf-8 110.4922ms
+2025-09-04 13:51:59.619 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/users - application/json 146
+2025-09-04 13:51:59.623 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.UsersController.CreateUser (TimeTraceOne)'
+2025-09-04 13:51:59.628 +05:00 [INF] Route matched with {action = "CreateUser", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.UserDetailDto]] CreateUser(TimeTraceOne.DTOs.CreateUserDto) on controller TimeTraceOne.Controllers.UsersController (TimeTraceOne).
+2025-09-04 13:51:59.658 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__dto_Email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @__dto_Email_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 13:51:59.925 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p2='?' (DbType = DateTime2), @p3='?' (Size = 255), @p4='?' (DbType = Boolean), @p5='?' (Size = 100), @p6='?' (Size = 100), @p7='?' (Size = 255), @p8='?' (Size = 4000), @p9='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Id], [AvailableHours], [CreatedAt], [Email], [IsActive], [JobTitle], [Name], [PasswordHash], [Role], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+2025-09-04 13:51:59.938 +05:00 [INF] Created user "64fb8e83-0c91-44ac-a055-c944bdd2b6fd" with email testuser13@uniqueexample.com
+2025-09-04 13:51:59.965 +05:00 [INF] Executed DbCommand (7ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AvailableHours], [t].[CreatedAt], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt], [t1].[TeamId], [t1].[UserId], [t1].[JoinedAt], [t1].[Id], [t1].[CreatedAt], [t1].[CreatedBy], [t1].[DepartmentId], [t1].[Description], [t1].[LeaderId], [t1].[Name], [t1].[UpdatedAt], [t1].[Id0], [t1].[CreatedAt0], [t1].[CreatedBy0], [t1].[DepartmentDescription], [t1].[IsBillable], [t1].[Name0], [t1].[Status], [t1].[UpdatedAt0]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[AvailableHours], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [t0].[TeamId], [t0].[UserId], [t0].[JoinedAt], [t2].[Id], [t2].[CreatedAt], [t2].[CreatedBy], [t2].[DepartmentId], [t2].[Description], [t2].[LeaderId], [t2].[Name], [t2].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0]
+    FROM [TeamMembers] AS [t0]
+    INNER JOIN [Teams] AS [t2] ON [t0].[TeamId] = [t2].[Id]
+    INNER JOIN [Departments] AS [d] ON [t2].[DepartmentId] = [d].[Id]
+) AS [t1] ON [t].[Id] = [t1].[UserId]
+ORDER BY [t].[Id], [t1].[TeamId], [t1].[UserId], [t1].[Id]
+2025-09-04 13:51:59.975 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.UserDetailDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:51:59.982 +05:00 [INF] Executed action TimeTraceOne.Controllers.UsersController.CreateUser (TimeTraceOne) in 345.158ms
+2025-09-04 13:51:59.991 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.UsersController.CreateUser (TimeTraceOne)'
+2025-09-04 13:51:59.996 +05:00 [INF] HTTP POST /api/users responded 201 in 372.7503 ms
+2025-09-04 13:52:00.002 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/users - 201 null application/json; charset=utf-8 383.5148ms
+2025-09-04 13:52:08.519 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/projects - application/json 183
+2025-09-04 13:52:08.525 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne)'
+2025-09-04 13:52:08.527 +05:00 [INF] Route matched with {action = "CreateProject", controller = "Projects"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.ProjectDto]] CreateProject(TimeTraceOne.DTOs.CreateProjectDto) on controller TimeTraceOne.Controllers.ProjectsController (TimeTraceOne).
+2025-09-04 13:52:08.536 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 255), @p2='?' (Size = 100), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Guid), @p5='?' (Size = 2000), @p6='?' (DbType = Boolean), @p7='?' (Size = 100), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Projects] ([Id], [ClientEmail], [ClientName], [CreatedAt], [CreatedBy], [Description], [IsBillable], [Name], [ProjectType], [Status], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2025-09-04 13:52:08.541 +05:00 [INF] Created project "59426c48-18cc-48c7-963e-afbc7890f0b0" with name Test Project 9
+2025-09-04 13:52:08.548 +05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[ClientEmail], [t].[ClientName], [t].[CreatedAt], [t].[CreatedBy], [t].[Description], [t].[IsBillable], [t].[Name], [t].[ProjectType], [t].[Status], [t].[UpdatedAt], [t].[Id0], [t].[AvailableHours], [t].[CreatedAt0], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name0], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt0], [t1].[TeamId], [t1].[ProjectId], [t1].[Id], [t1].[CreatedAt], [t1].[CreatedBy], [t1].[DepartmentId], [t1].[Description], [t1].[LeaderId], [t1].[Name], [t1].[UpdatedAt], [t1].[Id0], [t1].[CreatedAt0], [t1].[CreatedBy0], [t1].[DepartmentDescription], [t1].[IsBillable], [t1].[Name0], [t1].[Status], [t1].[UpdatedAt0]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[ClientEmail], [p].[ClientName], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsBillable], [p].[Name], [p].[ProjectType], [p].[Status], [p].[UpdatedAt], [u].[Id] AS [Id0], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt0], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name0], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt0]
+    FROM [Projects] AS [p]
+    INNER JOIN [Users] AS [u] ON [p].[CreatedBy] = [u].[Id]
+    WHERE [p].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [t0].[TeamId], [t0].[ProjectId], [t2].[Id], [t2].[CreatedAt], [t2].[CreatedBy], [t2].[DepartmentId], [t2].[Description], [t2].[LeaderId], [t2].[Name], [t2].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0]
+    FROM [TeamProjects] AS [t0]
+    INNER JOIN [Teams] AS [t2] ON [t0].[TeamId] = [t2].[Id]
+    INNER JOIN [Departments] AS [d] ON [t2].[DepartmentId] = [d].[Id]
+) AS [t1] ON [t].[Id] = [t1].[ProjectId]
+ORDER BY [t].[Id], [t].[Id0], [t1].[TeamId], [t1].[ProjectId], [t1].[Id]
+2025-09-04 13:52:08.554 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.ProjectDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:52:08.556 +05:00 [INF] Executed action TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne) in 24.429ms
+2025-09-04 13:52:08.564 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne)'
+2025-09-04 13:52:08.568 +05:00 [INF] HTTP POST /api/projects responded 201 in 43.2807 ms
+2025-09-04 13:52:08.572 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/projects - 201 null application/json; charset=utf-8 52.9742ms
+2025-09-04 13:53:53.402 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/projects - application/json 183
+2025-09-04 13:53:53.407 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne)'
+2025-09-04 13:53:53.409 +05:00 [INF] Route matched with {action = "CreateProject", controller = "Projects"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.ProjectDto]] CreateProject(TimeTraceOne.DTOs.CreateProjectDto) on controller TimeTraceOne.Controllers.ProjectsController (TimeTraceOne).
+2025-09-04 13:53:53.419 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 255), @p2='?' (Size = 100), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Guid), @p5='?' (Size = 2000), @p6='?' (DbType = Boolean), @p7='?' (Size = 100), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Projects] ([Id], [ClientEmail], [ClientName], [CreatedAt], [CreatedBy], [Description], [IsBillable], [Name], [ProjectType], [Status], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2025-09-04 13:53:53.426 +05:00 [INF] Created project "79d17047-7788-408b-9d28-17812d521a98" with name Test Project 9
+2025-09-04 13:53:53.436 +05:00 [INF] Executed DbCommand (7ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[ClientEmail], [t].[ClientName], [t].[CreatedAt], [t].[CreatedBy], [t].[Description], [t].[IsBillable], [t].[Name], [t].[ProjectType], [t].[Status], [t].[UpdatedAt], [t].[Id0], [t].[AvailableHours], [t].[CreatedAt0], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name0], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt0], [t1].[TeamId], [t1].[ProjectId], [t1].[Id], [t1].[CreatedAt], [t1].[CreatedBy], [t1].[DepartmentId], [t1].[Description], [t1].[LeaderId], [t1].[Name], [t1].[UpdatedAt], [t1].[Id0], [t1].[CreatedAt0], [t1].[CreatedBy0], [t1].[DepartmentDescription], [t1].[IsBillable], [t1].[Name0], [t1].[Status], [t1].[UpdatedAt0]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[ClientEmail], [p].[ClientName], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsBillable], [p].[Name], [p].[ProjectType], [p].[Status], [p].[UpdatedAt], [u].[Id] AS [Id0], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt0], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name0], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt0]
+    FROM [Projects] AS [p]
+    INNER JOIN [Users] AS [u] ON [p].[CreatedBy] = [u].[Id]
+    WHERE [p].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [t0].[TeamId], [t0].[ProjectId], [t2].[Id], [t2].[CreatedAt], [t2].[CreatedBy], [t2].[DepartmentId], [t2].[Description], [t2].[LeaderId], [t2].[Name], [t2].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0]
+    FROM [TeamProjects] AS [t0]
+    INNER JOIN [Teams] AS [t2] ON [t0].[TeamId] = [t2].[Id]
+    INNER JOIN [Departments] AS [d] ON [t2].[DepartmentId] = [d].[Id]
+) AS [t1] ON [t].[Id] = [t1].[ProjectId]
+ORDER BY [t].[Id], [t].[Id0], [t1].[TeamId], [t1].[ProjectId], [t1].[Id]
+2025-09-04 13:53:53.443 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.ProjectDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:53:53.447 +05:00 [INF] Executed action TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne) in 34.2263ms
+2025-09-04 13:53:53.456 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne)'
+2025-09-04 13:53:53.462 +05:00 [INF] HTTP POST /api/projects responded 201 in 55.1664 ms
+2025-09-04 13:53:53.469 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/projects - 201 null application/json; charset=utf-8 66.6737ms
+2025-09-04 13:54:03.592 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/projects - application/json 183
+2025-09-04 13:54:03.601 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne)'
+2025-09-04 13:54:03.604 +05:00 [INF] Route matched with {action = "CreateProject", controller = "Projects"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.ProjectDto]] CreateProject(TimeTraceOne.DTOs.CreateProjectDto) on controller TimeTraceOne.Controllers.ProjectsController (TimeTraceOne).
+2025-09-04 13:54:03.611 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 255), @p2='?' (Size = 100), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Guid), @p5='?' (Size = 2000), @p6='?' (DbType = Boolean), @p7='?' (Size = 100), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Projects] ([Id], [ClientEmail], [ClientName], [CreatedAt], [CreatedBy], [Description], [IsBillable], [Name], [ProjectType], [Status], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2025-09-04 13:54:03.616 +05:00 [INF] Created project "07ddf22a-dc62-4a25-9d25-7a54865409f8" with name Test Project 9
+2025-09-04 13:54:03.622 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[ClientEmail], [t].[ClientName], [t].[CreatedAt], [t].[CreatedBy], [t].[Description], [t].[IsBillable], [t].[Name], [t].[ProjectType], [t].[Status], [t].[UpdatedAt], [t].[Id0], [t].[AvailableHours], [t].[CreatedAt0], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name0], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt0], [t1].[TeamId], [t1].[ProjectId], [t1].[Id], [t1].[CreatedAt], [t1].[CreatedBy], [t1].[DepartmentId], [t1].[Description], [t1].[LeaderId], [t1].[Name], [t1].[UpdatedAt], [t1].[Id0], [t1].[CreatedAt0], [t1].[CreatedBy0], [t1].[DepartmentDescription], [t1].[IsBillable], [t1].[Name0], [t1].[Status], [t1].[UpdatedAt0]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[ClientEmail], [p].[ClientName], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsBillable], [p].[Name], [p].[ProjectType], [p].[Status], [p].[UpdatedAt], [u].[Id] AS [Id0], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt0], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name0], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt0]
+    FROM [Projects] AS [p]
+    INNER JOIN [Users] AS [u] ON [p].[CreatedBy] = [u].[Id]
+    WHERE [p].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [t0].[TeamId], [t0].[ProjectId], [t2].[Id], [t2].[CreatedAt], [t2].[CreatedBy], [t2].[DepartmentId], [t2].[Description], [t2].[LeaderId], [t2].[Name], [t2].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0]
+    FROM [TeamProjects] AS [t0]
+    INNER JOIN [Teams] AS [t2] ON [t0].[TeamId] = [t2].[Id]
+    INNER JOIN [Departments] AS [d] ON [t2].[DepartmentId] = [d].[Id]
+) AS [t1] ON [t].[Id] = [t1].[ProjectId]
+ORDER BY [t].[Id], [t].[Id0], [t1].[TeamId], [t1].[ProjectId], [t1].[Id]
+2025-09-04 13:54:03.629 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.ProjectDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:54:03.631 +05:00 [INF] Executed action TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne) in 23.7016ms
+2025-09-04 13:54:03.637 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne)'
+2025-09-04 13:54:03.643 +05:00 [INF] HTTP POST /api/projects responded 201 in 41.8195 ms
+2025-09-04 13:54:03.647 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/projects - 201 null application/json; charset=utf-8 54.8289ms
+2025-09-04 13:54:09.669 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/auth/login - application/json 53
+2025-09-04 13:54:09.675 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.AuthController.Login (TimeTraceOne)'
+2025-09-04 13:54:09.677 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.ApiResponse`1[TimeTraceOne.DTOs.LoginResponseDto]]] Login(TimeTraceOne.DTOs.LoginRequestDto) on controller TimeTraceOne.Controllers.AuthController (TimeTraceOne).
+2025-09-04 13:54:09.683 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__request_Email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AvailableHours], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0 AND [u].[IsActive] = CAST(1 AS bit)
+2025-09-04 13:54:09.860 +05:00 [INF] User admin@timeflow.com logged in successfully
+2025-09-04 13:54:09.862 +05:00 [INF] Executing OkObjectResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.LoginResponseDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:54:09.864 +05:00 [INF] Executed action TimeTraceOne.Controllers.AuthController.Login (TimeTraceOne) in 183.392ms
+2025-09-04 13:54:09.873 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.AuthController.Login (TimeTraceOne)'
+2025-09-04 13:54:09.884 +05:00 [INF] HTTP POST /api/auth/login responded 200 in 209.3156 ms
+2025-09-04 13:54:09.891 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/auth/login - 200 null application/json; charset=utf-8 221.661ms
+2025-09-04 13:54:15.903 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/projects - application/json 183
+2025-09-04 13:54:15.908 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne)'
+2025-09-04 13:54:15.910 +05:00 [INF] Route matched with {action = "CreateProject", controller = "Projects"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.ProjectDto]] CreateProject(TimeTraceOne.DTOs.CreateProjectDto) on controller TimeTraceOne.Controllers.ProjectsController (TimeTraceOne).
+2025-09-04 13:54:15.916 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 255), @p2='?' (Size = 100), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Guid), @p5='?' (Size = 2000), @p6='?' (DbType = Boolean), @p7='?' (Size = 100), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Projects] ([Id], [ClientEmail], [ClientName], [CreatedAt], [CreatedBy], [Description], [IsBillable], [Name], [ProjectType], [Status], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2025-09-04 13:54:15.922 +05:00 [INF] Created project "892de48e-f427-488d-b560-8a01008a4951" with name Test Project 9
+2025-09-04 13:54:15.925 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[ClientEmail], [t].[ClientName], [t].[CreatedAt], [t].[CreatedBy], [t].[Description], [t].[IsBillable], [t].[Name], [t].[ProjectType], [t].[Status], [t].[UpdatedAt], [t].[Id0], [t].[AvailableHours], [t].[CreatedAt0], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name0], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt0], [t1].[TeamId], [t1].[ProjectId], [t1].[Id], [t1].[CreatedAt], [t1].[CreatedBy], [t1].[DepartmentId], [t1].[Description], [t1].[LeaderId], [t1].[Name], [t1].[UpdatedAt], [t1].[Id0], [t1].[CreatedAt0], [t1].[CreatedBy0], [t1].[DepartmentDescription], [t1].[IsBillable], [t1].[Name0], [t1].[Status], [t1].[UpdatedAt0]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[ClientEmail], [p].[ClientName], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsBillable], [p].[Name], [p].[ProjectType], [p].[Status], [p].[UpdatedAt], [u].[Id] AS [Id0], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt0], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name0], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt0]
+    FROM [Projects] AS [p]
+    INNER JOIN [Users] AS [u] ON [p].[CreatedBy] = [u].[Id]
+    WHERE [p].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [t0].[TeamId], [t0].[ProjectId], [t2].[Id], [t2].[CreatedAt], [t2].[CreatedBy], [t2].[DepartmentId], [t2].[Description], [t2].[LeaderId], [t2].[Name], [t2].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0]
+    FROM [TeamProjects] AS [t0]
+    INNER JOIN [Teams] AS [t2] ON [t0].[TeamId] = [t2].[Id]
+    INNER JOIN [Departments] AS [d] ON [t2].[DepartmentId] = [d].[Id]
+) AS [t1] ON [t].[Id] = [t1].[ProjectId]
+ORDER BY [t].[Id], [t].[Id0], [t1].[TeamId], [t1].[ProjectId], [t1].[Id]
+2025-09-04 13:54:15.933 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.ProjectDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:54:15.936 +05:00 [INF] Executed action TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne) in 22.2579ms
+2025-09-04 13:54:15.941 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.ProjectsController.CreateProject (TimeTraceOne)'
+2025-09-04 13:54:15.945 +05:00 [INF] HTTP POST /api/projects responded 201 in 37.5247 ms
+2025-09-04 13:54:15.949 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/projects - 201 null application/json; charset=utf-8 46.23ms
+2025-09-04 13:54:23.169 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/products - application/json 81
+2025-09-04 13:54:23.176 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.ProductsController.CreateProduct (TimeTraceOne)'
+2025-09-04 13:54:23.181 +05:00 [INF] Route matched with {action = "CreateProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.ProductDto]] CreateProduct(TimeTraceOne.DTOs.CreateProductDto) on controller TimeTraceOne.Controllers.ProductsController (TimeTraceOne).
+2025-09-04 13:54:23.204 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Guid), @p3='?' (DbType = Boolean), @p4='?' (Size = 100), @p5='?' (Size = 2000), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Products] ([Id], [CreatedAt], [CreatedBy], [IsBillable], [Name], [ProductDescription], [Status], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-09-04 13:54:23.212 +05:00 [INF] Created product "2ac53bc7-876c-427b-9328-7a494892d2e8" with name Test Product 8
+2025-09-04 13:54:23.230 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[CreatedBy], [t].[IsBillable], [t].[Name], [t].[ProductDescription], [t].[Status], [t].[UpdatedAt], [t].[Id0], [t].[AvailableHours], [t].[CreatedAt0], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name0], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt0], [t1].[TeamId], [t1].[ProductId], [t1].[Id], [t1].[CreatedAt], [t1].[CreatedBy], [t1].[DepartmentId], [t1].[Description], [t1].[LeaderId], [t1].[Name], [t1].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[CreatedAt], [p].[CreatedBy], [p].[IsBillable], [p].[Name], [p].[ProductDescription], [p].[Status], [p].[UpdatedAt], [u].[Id] AS [Id0], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt0], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name0], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt0]
+    FROM [Products] AS [p]
+    INNER JOIN [Users] AS [u] ON [p].[CreatedBy] = [u].[Id]
+    WHERE [p].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [t0].[TeamId], [t0].[ProductId], [t2].[Id], [t2].[CreatedAt], [t2].[CreatedBy], [t2].[DepartmentId], [t2].[Description], [t2].[LeaderId], [t2].[Name], [t2].[UpdatedAt]
+    FROM [TeamProducts] AS [t0]
+    INNER JOIN [Teams] AS [t2] ON [t0].[TeamId] = [t2].[Id]
+) AS [t1] ON [t].[Id] = [t1].[ProductId]
+ORDER BY [t].[Id], [t].[Id0], [t1].[TeamId], [t1].[ProductId]
+2025-09-04 13:54:23.242 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.ProductDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:54:23.247 +05:00 [INF] Executed action TimeTraceOne.Controllers.ProductsController.CreateProduct (TimeTraceOne) in 62.5288ms
+2025-09-04 13:54:23.253 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.ProductsController.CreateProduct (TimeTraceOne)'
+2025-09-04 13:54:23.260 +05:00 [INF] HTTP POST /api/products responded 201 in 84.4496 ms
+2025-09-04 13:54:23.264 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/products - 201 null application/json; charset=utf-8 95.6412ms
+2025-09-04 13:54:33.936 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/departments - application/json 108
+2025-09-04 13:54:33.941 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.DepartmentsController.CreateDepartment (TimeTraceOne)'
+2025-09-04 13:54:33.946 +05:00 [INF] Route matched with {action = "CreateDepartment", controller = "Departments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.DepartmentDto]] CreateDepartment(TimeTraceOne.DTOs.CreateDepartmentDto) on controller TimeTraceOne.Controllers.DepartmentsController (TimeTraceOne).
+2025-09-04 13:54:33.971 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Guid), @p3='?' (Size = 2000), @p4='?' (DbType = Boolean), @p5='?' (Size = 100), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Departments] ([Id], [CreatedAt], [CreatedBy], [DepartmentDescription], [IsBillable], [Name], [Status], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-09-04 13:54:33.981 +05:00 [INF] Created department "58f3d33a-cd8e-47f8-811e-46b3a950c9d3" with name Test Department 8
+2025-09-04 13:54:33.998 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[CreatedBy], [t].[DepartmentDescription], [t].[IsBillable], [t].[Name], [t].[Status], [t].[UpdatedAt], [t].[Id0], [t].[AvailableHours], [t].[CreatedAt0], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name0], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt0], [t0].[Id], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[DepartmentId], [t0].[Description], [t0].[LeaderId], [t0].[Name], [t0].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [d].[Id], [d].[CreatedAt], [d].[CreatedBy], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name], [d].[Status], [d].[UpdatedAt], [u].[Id] AS [Id0], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt0], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name0], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt0]
+    FROM [Departments] AS [d]
+    INNER JOIN [Users] AS [u] ON [d].[CreatedBy] = [u].[Id]
+    WHERE [d].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Teams] AS [t0] ON [t].[Id] = [t0].[DepartmentId]
+ORDER BY [t].[Id], [t].[Id0]
+2025-09-04 13:54:34.010 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.DepartmentDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:54:34.015 +05:00 [INF] Executed action TimeTraceOne.Controllers.DepartmentsController.CreateDepartment (TimeTraceOne) in 65.0369ms
+2025-09-04 13:54:34.028 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.DepartmentsController.CreateDepartment (TimeTraceOne)'
+2025-09-04 13:54:34.030 +05:00 [INF] HTTP POST /api/departments responded 201 in 89.4549 ms
+2025-09-04 13:54:34.034 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/departments - 201 null application/json; charset=utf-8 98.2461ms
+2025-09-04 13:54:44.537 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/departments - application/json 108
+2025-09-04 13:54:44.543 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.DepartmentsController.CreateDepartment (TimeTraceOne)'
+2025-09-04 13:54:44.545 +05:00 [INF] Route matched with {action = "CreateDepartment", controller = "Departments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.DepartmentDto]] CreateDepartment(TimeTraceOne.DTOs.CreateDepartmentDto) on controller TimeTraceOne.Controllers.DepartmentsController (TimeTraceOne).
+2025-09-04 13:54:44.551 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Guid), @p3='?' (Size = 2000), @p4='?' (DbType = Boolean), @p5='?' (Size = 100), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Departments] ([Id], [CreatedAt], [CreatedBy], [DepartmentDescription], [IsBillable], [Name], [Status], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-09-04 13:54:44.556 +05:00 [INF] Created department "92d5d2b4-17c5-4b5b-bd34-d5de4392193f" with name Test Department 8
+2025-09-04 13:54:44.559 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[CreatedBy], [t].[DepartmentDescription], [t].[IsBillable], [t].[Name], [t].[Status], [t].[UpdatedAt], [t].[Id0], [t].[AvailableHours], [t].[CreatedAt0], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name0], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt0], [t0].[Id], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[DepartmentId], [t0].[Description], [t0].[LeaderId], [t0].[Name], [t0].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [d].[Id], [d].[CreatedAt], [d].[CreatedBy], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name], [d].[Status], [d].[UpdatedAt], [u].[Id] AS [Id0], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt0], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name0], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt0]
+    FROM [Departments] AS [d]
+    INNER JOIN [Users] AS [u] ON [d].[CreatedBy] = [u].[Id]
+    WHERE [d].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Teams] AS [t0] ON [t].[Id] = [t0].[DepartmentId]
+ORDER BY [t].[Id], [t].[Id0]
+2025-09-04 13:54:44.564 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.DepartmentDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:54:44.568 +05:00 [INF] Executed action TimeTraceOne.Controllers.DepartmentsController.CreateDepartment (TimeTraceOne) in 19.2088ms
+2025-09-04 13:54:44.574 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.DepartmentsController.CreateDepartment (TimeTraceOne)'
+2025-09-04 13:54:44.577 +05:00 [INF] HTTP POST /api/departments responded 201 in 34.5292 ms
+2025-09-04 13:54:44.581 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/departments - 201 null application/json; charset=utf-8 44.1495ms
+2025-09-04 13:55:06.261 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/departments - application/json 90
+2025-09-04 13:55:06.269 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.DepartmentsController.CreateDepartment (TimeTraceOne)'
+2025-09-04 13:55:06.271 +05:00 [INF] Route matched with {action = "CreateDepartment", controller = "Departments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.DepartmentDto]] CreateDepartment(TimeTraceOne.DTOs.CreateDepartmentDto) on controller TimeTraceOne.Controllers.DepartmentsController (TimeTraceOne).
+2025-09-04 13:55:06.280 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Guid), @p3='?' (Size = 2000), @p4='?' (DbType = Boolean), @p5='?' (Size = 100), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Departments] ([Id], [CreatedAt], [CreatedBy], [DepartmentDescription], [IsBillable], [Name], [Status], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-09-04 13:55:06.285 +05:00 [INF] Created department "2b3776ff-5e37-489e-9ca4-6f70c93ccbc7" with name Test Department 8
+2025-09-04 13:55:06.292 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[CreatedBy], [t].[DepartmentDescription], [t].[IsBillable], [t].[Name], [t].[Status], [t].[UpdatedAt], [t].[Id0], [t].[AvailableHours], [t].[CreatedAt0], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name0], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt0], [t0].[Id], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[DepartmentId], [t0].[Description], [t0].[LeaderId], [t0].[Name], [t0].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [d].[Id], [d].[CreatedAt], [d].[CreatedBy], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name], [d].[Status], [d].[UpdatedAt], [u].[Id] AS [Id0], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt0], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name0], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt0]
+    FROM [Departments] AS [d]
+    INNER JOIN [Users] AS [u] ON [d].[CreatedBy] = [u].[Id]
+    WHERE [d].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Teams] AS [t0] ON [t].[Id] = [t0].[DepartmentId]
+ORDER BY [t].[Id], [t].[Id0]
+2025-09-04 13:55:06.298 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.DepartmentDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:55:06.301 +05:00 [INF] Executed action TimeTraceOne.Controllers.DepartmentsController.CreateDepartment (TimeTraceOne) in 26.0536ms
+2025-09-04 13:55:06.312 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.DepartmentsController.CreateDepartment (TimeTraceOne)'
+2025-09-04 13:55:06.315 +05:00 [INF] HTTP POST /api/departments responded 201 in 46.1728 ms
+2025-09-04 13:55:06.319 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/departments - 201 null application/json; charset=utf-8 57.9668ms
+2025-09-04 13:55:14.714 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/departments - application/json 90
+2025-09-04 13:55:14.722 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.DepartmentsController.CreateDepartment (TimeTraceOne)'
+2025-09-04 13:55:14.723 +05:00 [INF] Route matched with {action = "CreateDepartment", controller = "Departments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.DepartmentDto]] CreateDepartment(TimeTraceOne.DTOs.CreateDepartmentDto) on controller TimeTraceOne.Controllers.DepartmentsController (TimeTraceOne).
+2025-09-04 13:55:14.729 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Guid), @p3='?' (Size = 2000), @p4='?' (DbType = Boolean), @p5='?' (Size = 100), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Departments] ([Id], [CreatedAt], [CreatedBy], [DepartmentDescription], [IsBillable], [Name], [Status], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-09-04 13:55:14.734 +05:00 [INF] Created department "ed08f69f-527d-45c6-92fc-d9b370a1def5" with name Test Department 8
+2025-09-04 13:55:14.737 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[CreatedBy], [t].[DepartmentDescription], [t].[IsBillable], [t].[Name], [t].[Status], [t].[UpdatedAt], [t].[Id0], [t].[AvailableHours], [t].[CreatedAt0], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name0], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt0], [t0].[Id], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[DepartmentId], [t0].[Description], [t0].[LeaderId], [t0].[Name], [t0].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [d].[Id], [d].[CreatedAt], [d].[CreatedBy], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name], [d].[Status], [d].[UpdatedAt], [u].[Id] AS [Id0], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt0], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name0], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt0]
+    FROM [Departments] AS [d]
+    INNER JOIN [Users] AS [u] ON [d].[CreatedBy] = [u].[Id]
+    WHERE [d].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Teams] AS [t0] ON [t].[Id] = [t0].[DepartmentId]
+ORDER BY [t].[Id], [t].[Id0]
+2025-09-04 13:55:14.743 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.DepartmentDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:55:14.746 +05:00 [INF] Executed action TimeTraceOne.Controllers.DepartmentsController.CreateDepartment (TimeTraceOne) in 19.4037ms
+2025-09-04 13:55:14.754 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.DepartmentsController.CreateDepartment (TimeTraceOne)'
+2025-09-04 13:55:14.757 +05:00 [INF] HTTP POST /api/departments responded 201 in 35.7493 ms
+2025-09-04 13:55:14.761 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/departments - 201 null application/json; charset=utf-8 46.9905ms
+2025-09-04 13:55:22.415 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/departments - application/json 90
+2025-09-04 13:55:22.422 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.DepartmentsController.CreateDepartment (TimeTraceOne)'
+2025-09-04 13:55:22.424 +05:00 [INF] Route matched with {action = "CreateDepartment", controller = "Departments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.DepartmentDto]] CreateDepartment(TimeTraceOne.DTOs.CreateDepartmentDto) on controller TimeTraceOne.Controllers.DepartmentsController (TimeTraceOne).
+2025-09-04 13:55:22.431 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Guid), @p3='?' (Size = 2000), @p4='?' (DbType = Boolean), @p5='?' (Size = 100), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Departments] ([Id], [CreatedAt], [CreatedBy], [DepartmentDescription], [IsBillable], [Name], [Status], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-09-04 13:55:22.437 +05:00 [INF] Created department "5df12ee2-0072-43f3-a2b2-78072563634d" with name Test Department 8
+2025-09-04 13:55:22.439 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[CreatedBy], [t].[DepartmentDescription], [t].[IsBillable], [t].[Name], [t].[Status], [t].[UpdatedAt], [t].[Id0], [t].[AvailableHours], [t].[CreatedAt0], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name0], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt0], [t0].[Id], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[DepartmentId], [t0].[Description], [t0].[LeaderId], [t0].[Name], [t0].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [d].[Id], [d].[CreatedAt], [d].[CreatedBy], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name], [d].[Status], [d].[UpdatedAt], [u].[Id] AS [Id0], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt0], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name0], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt0]
+    FROM [Departments] AS [d]
+    INNER JOIN [Users] AS [u] ON [d].[CreatedBy] = [u].[Id]
+    WHERE [d].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Teams] AS [t0] ON [t].[Id] = [t0].[DepartmentId]
+ORDER BY [t].[Id], [t].[Id0]
+2025-09-04 13:55:22.444 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.DepartmentDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:55:22.448 +05:00 [INF] Executed action TimeTraceOne.Controllers.DepartmentsController.CreateDepartment (TimeTraceOne) in 20.0457ms
+2025-09-04 13:55:22.459 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.DepartmentsController.CreateDepartment (TimeTraceOne)'
+2025-09-04 13:55:22.464 +05:00 [INF] HTTP POST /api/departments responded 201 in 41.6683 ms
+2025-09-04 13:55:22.470 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/departments - 201 null application/json; charset=utf-8 54.686ms
+2025-09-04 13:55:31.155 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/teams - application/json 154
+2025-09-04 13:55:31.162 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:55:31.167 +05:00 [INF] Route matched with {action = "CreateTeam", controller = "Teams"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.TeamDto]] CreateTeam(TimeTraceOne.DTOs.CreateTeamDto) on controller TimeTraceOne.Controllers.TeamsController (TimeTraceOne).
+2025-09-04 13:55:31.200 +05:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Guid), @p3='?' (DbType = Guid), @p4='?' (Size = 2000), @p5='?' (DbType = Guid), @p6='?' (Size = 100), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Teams] ([Id], [CreatedAt], [CreatedBy], [DepartmentId], [Description], [LeaderId], [Name], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-09-04 13:55:31.211 +05:00 [INF] Created team "a233c873-9bac-4b06-a24e-760b1b8b4e4f" with name Test Team 8
+2025-09-04 13:55:31.247 +05:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-09-04 13:55:31.271 +05:00 [INF] Executed DbCommand (11ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[DepartmentId], [t0].[Description], [t0].[LeaderId], [t0].[Name], [t0].[UpdatedAt], [t0].[Id0], [t0].[CreatedAt0], [t0].[CreatedBy0], [t0].[DepartmentDescription], [t0].[IsBillable], [t0].[Name0], [t0].[Status], [t0].[UpdatedAt0], [t0].[Id1], [t0].[AvailableHours], [t0].[CreatedAt1], [t0].[Email], [t0].[IsActive], [t0].[JobTitle], [t0].[Name1], [t0].[PasswordHash], [t0].[Role], [t0].[UpdatedAt1], [t0].[Id2], [t0].[AvailableHours0], [t0].[CreatedAt2], [t0].[Email0], [t0].[IsActive0], [t0].[JobTitle0], [t0].[Name2], [t0].[PasswordHash0], [t0].[Role0], [t0].[UpdatedAt2], [t1].[TeamId], [t1].[UserId], [t1].[JoinedAt], [t1].[Id], [t1].[AvailableHours], [t1].[CreatedAt], [t1].[Email], [t1].[IsActive], [t1].[JobTitle], [t1].[Name], [t1].[PasswordHash], [t1].[Role], [t1].[UpdatedAt], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t3].[ClientEmail], [t3].[ClientName], [t3].[CreatedAt], [t3].[CreatedBy], [t3].[Description], [t3].[IsBillable], [t3].[Name], [t3].[ProjectType], [t3].[Status], [t3].[UpdatedAt], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t5].[CreatedAt], [t5].[CreatedBy], [t5].[IsBillable], [t5].[Name], [t5].[ProductDescription], [t5].[Status], [t5].[UpdatedAt], [t7].[TeamId], [t7].[DepartmentId], [t7].[Id], [t7].[CreatedAt], [t7].[CreatedBy], [t7].[DepartmentDescription], [t7].[IsBillable], [t7].[Name], [t7].[Status], [t7].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [t].[Id], [t].[CreatedAt], [t].[CreatedBy], [t].[DepartmentId], [t].[Description], [t].[LeaderId], [t].[Name], [t].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0], [u].[Id] AS [Id1], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt1], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name1], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt1], [u0].[Id] AS [Id2], [u0].[AvailableHours] AS [AvailableHours0], [u0].[CreatedAt] AS [CreatedAt2], [u0].[Email] AS [Email0], [u0].[IsActive] AS [IsActive0], [u0].[JobTitle] AS [JobTitle0], [u0].[Name] AS [Name2], [u0].[PasswordHash] AS [PasswordHash0], [u0].[Role] AS [Role0], [u0].[UpdatedAt] AS [UpdatedAt2]
+    FROM [Teams] AS [t]
+    INNER JOIN [Departments] AS [d] ON [t].[DepartmentId] = [d].[Id]
+    LEFT JOIN [Users] AS [u] ON [t].[LeaderId] = [u].[Id]
+    INNER JOIN [Users] AS [u0] ON [t].[CreatedBy] = [u0].[Id]
+    WHERE [t].[Id] = @__id_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [t2].[TeamId], [t2].[UserId], [t2].[JoinedAt], [u1].[Id], [u1].[AvailableHours], [u1].[CreatedAt], [u1].[Email], [u1].[IsActive], [u1].[JobTitle], [u1].[Name], [u1].[PasswordHash], [u1].[Role], [u1].[UpdatedAt]
+    FROM [TeamMembers] AS [t2]
+    INNER JOIN [Users] AS [u1] ON [t2].[UserId] = [u1].[Id]
+) AS [t1] ON [t0].[Id] = [t1].[TeamId]
+LEFT JOIN (
+    SELECT [t4].[TeamId], [t4].[ProjectId], [p].[Id], [p].[ClientEmail], [p].[ClientName], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsBillable], [p].[Name], [p].[ProjectType], [p].[Status], [p].[UpdatedAt]
+    FROM [TeamProjects] AS [t4]
+    INNER JOIN [Projects] AS [p] ON [t4].[ProjectId] = [p].[Id]
+) AS [t3] ON [t0].[Id] = [t3].[TeamId]
+LEFT JOIN (
+    SELECT [t6].[TeamId], [t6].[ProductId], [p0].[Id], [p0].[CreatedAt], [p0].[CreatedBy], [p0].[IsBillable], [p0].[Name], [p0].[ProductDescription], [p0].[Status], [p0].[UpdatedAt]
+    FROM [TeamProducts] AS [t6]
+    INNER JOIN [Products] AS [p0] ON [t6].[ProductId] = [p0].[Id]
+) AS [t5] ON [t0].[Id] = [t5].[TeamId]
+LEFT JOIN (
+    SELECT [t8].[TeamId], [t8].[DepartmentId], [d0].[Id], [d0].[CreatedAt], [d0].[CreatedBy], [d0].[DepartmentDescription], [d0].[IsBillable], [d0].[Name], [d0].[Status], [d0].[UpdatedAt]
+    FROM [TeamDepartments] AS [t8]
+    INNER JOIN [Departments] AS [d0] ON [t8].[DepartmentId] = [d0].[Id]
+) AS [t7] ON [t0].[Id] = [t7].[TeamId]
+ORDER BY [t0].[Id], [t0].[Id0], [t0].[Id1], [t0].[Id2], [t1].[TeamId], [t1].[UserId], [t1].[Id], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t7].[TeamId], [t7].[DepartmentId]
+2025-09-04 13:55:31.286 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.TeamDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:55:31.292 +05:00 [INF] Executed action TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne) in 121.2042ms
+2025-09-04 13:55:31.301 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:55:31.310 +05:00 [INF] HTTP POST /api/teams responded 201 in 148.8865 ms
+2025-09-04 13:55:31.314 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/teams - 201 null application/json; charset=utf-8 159.3215ms
+2025-09-04 13:55:38.032 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/teams - application/json 154
+2025-09-04 13:55:38.038 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:55:38.041 +05:00 [INF] Route matched with {action = "CreateTeam", controller = "Teams"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.TeamDto]] CreateTeam(TimeTraceOne.DTOs.CreateTeamDto) on controller TimeTraceOne.Controllers.TeamsController (TimeTraceOne).
+2025-09-04 13:55:38.047 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Guid), @p3='?' (DbType = Guid), @p4='?' (Size = 2000), @p5='?' (DbType = Guid), @p6='?' (Size = 100), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Teams] ([Id], [CreatedAt], [CreatedBy], [DepartmentId], [Description], [LeaderId], [Name], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-09-04 13:55:38.051 +05:00 [INF] Created team "f051af71-9218-4adf-be8b-4676946da14f" with name Test Team 8
+2025-09-04 13:55:38.054 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[DepartmentId], [t0].[Description], [t0].[LeaderId], [t0].[Name], [t0].[UpdatedAt], [t0].[Id0], [t0].[CreatedAt0], [t0].[CreatedBy0], [t0].[DepartmentDescription], [t0].[IsBillable], [t0].[Name0], [t0].[Status], [t0].[UpdatedAt0], [t0].[Id1], [t0].[AvailableHours], [t0].[CreatedAt1], [t0].[Email], [t0].[IsActive], [t0].[JobTitle], [t0].[Name1], [t0].[PasswordHash], [t0].[Role], [t0].[UpdatedAt1], [t0].[Id2], [t0].[AvailableHours0], [t0].[CreatedAt2], [t0].[Email0], [t0].[IsActive0], [t0].[JobTitle0], [t0].[Name2], [t0].[PasswordHash0], [t0].[Role0], [t0].[UpdatedAt2], [t1].[TeamId], [t1].[UserId], [t1].[JoinedAt], [t1].[Id], [t1].[AvailableHours], [t1].[CreatedAt], [t1].[Email], [t1].[IsActive], [t1].[JobTitle], [t1].[Name], [t1].[PasswordHash], [t1].[Role], [t1].[UpdatedAt], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t3].[ClientEmail], [t3].[ClientName], [t3].[CreatedAt], [t3].[CreatedBy], [t3].[Description], [t3].[IsBillable], [t3].[Name], [t3].[ProjectType], [t3].[Status], [t3].[UpdatedAt], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t5].[CreatedAt], [t5].[CreatedBy], [t5].[IsBillable], [t5].[Name], [t5].[ProductDescription], [t5].[Status], [t5].[UpdatedAt], [t7].[TeamId], [t7].[DepartmentId], [t7].[Id], [t7].[CreatedAt], [t7].[CreatedBy], [t7].[DepartmentDescription], [t7].[IsBillable], [t7].[Name], [t7].[Status], [t7].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [t].[Id], [t].[CreatedAt], [t].[CreatedBy], [t].[DepartmentId], [t].[Description], [t].[LeaderId], [t].[Name], [t].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0], [u].[Id] AS [Id1], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt1], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name1], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt1], [u0].[Id] AS [Id2], [u0].[AvailableHours] AS [AvailableHours0], [u0].[CreatedAt] AS [CreatedAt2], [u0].[Email] AS [Email0], [u0].[IsActive] AS [IsActive0], [u0].[JobTitle] AS [JobTitle0], [u0].[Name] AS [Name2], [u0].[PasswordHash] AS [PasswordHash0], [u0].[Role] AS [Role0], [u0].[UpdatedAt] AS [UpdatedAt2]
+    FROM [Teams] AS [t]
+    INNER JOIN [Departments] AS [d] ON [t].[DepartmentId] = [d].[Id]
+    LEFT JOIN [Users] AS [u] ON [t].[LeaderId] = [u].[Id]
+    INNER JOIN [Users] AS [u0] ON [t].[CreatedBy] = [u0].[Id]
+    WHERE [t].[Id] = @__id_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [t2].[TeamId], [t2].[UserId], [t2].[JoinedAt], [u1].[Id], [u1].[AvailableHours], [u1].[CreatedAt], [u1].[Email], [u1].[IsActive], [u1].[JobTitle], [u1].[Name], [u1].[PasswordHash], [u1].[Role], [u1].[UpdatedAt]
+    FROM [TeamMembers] AS [t2]
+    INNER JOIN [Users] AS [u1] ON [t2].[UserId] = [u1].[Id]
+) AS [t1] ON [t0].[Id] = [t1].[TeamId]
+LEFT JOIN (
+    SELECT [t4].[TeamId], [t4].[ProjectId], [p].[Id], [p].[ClientEmail], [p].[ClientName], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsBillable], [p].[Name], [p].[ProjectType], [p].[Status], [p].[UpdatedAt]
+    FROM [TeamProjects] AS [t4]
+    INNER JOIN [Projects] AS [p] ON [t4].[ProjectId] = [p].[Id]
+) AS [t3] ON [t0].[Id] = [t3].[TeamId]
+LEFT JOIN (
+    SELECT [t6].[TeamId], [t6].[ProductId], [p0].[Id], [p0].[CreatedAt], [p0].[CreatedBy], [p0].[IsBillable], [p0].[Name], [p0].[ProductDescription], [p0].[Status], [p0].[UpdatedAt]
+    FROM [TeamProducts] AS [t6]
+    INNER JOIN [Products] AS [p0] ON [t6].[ProductId] = [p0].[Id]
+) AS [t5] ON [t0].[Id] = [t5].[TeamId]
+LEFT JOIN (
+    SELECT [t8].[TeamId], [t8].[DepartmentId], [d0].[Id], [d0].[CreatedAt], [d0].[CreatedBy], [d0].[DepartmentDescription], [d0].[IsBillable], [d0].[Name], [d0].[Status], [d0].[UpdatedAt]
+    FROM [TeamDepartments] AS [t8]
+    INNER JOIN [Departments] AS [d0] ON [t8].[DepartmentId] = [d0].[Id]
+) AS [t7] ON [t0].[Id] = [t7].[TeamId]
+ORDER BY [t0].[Id], [t0].[Id0], [t0].[Id1], [t0].[Id2], [t1].[TeamId], [t1].[UserId], [t1].[Id], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t7].[TeamId], [t7].[DepartmentId]
+2025-09-04 13:55:38.062 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.TeamDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:55:38.064 +05:00 [INF] Executed action TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne) in 19.9635ms
+2025-09-04 13:55:38.071 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:55:38.074 +05:00 [INF] HTTP POST /api/teams responded 201 in 35.9516 ms
+2025-09-04 13:55:38.078 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/teams - 201 null application/json; charset=utf-8 45.1429ms
+2025-09-04 13:55:46.978 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/teams - application/json 154
+2025-09-04 13:55:46.987 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:55:46.988 +05:00 [INF] Route matched with {action = "CreateTeam", controller = "Teams"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.TeamDto]] CreateTeam(TimeTraceOne.DTOs.CreateTeamDto) on controller TimeTraceOne.Controllers.TeamsController (TimeTraceOne).
+2025-09-04 13:55:46.994 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Guid), @p3='?' (DbType = Guid), @p4='?' (Size = 2000), @p5='?' (DbType = Guid), @p6='?' (Size = 100), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Teams] ([Id], [CreatedAt], [CreatedBy], [DepartmentId], [Description], [LeaderId], [Name], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-09-04 13:55:46.998 +05:00 [INF] Created team "9cc16209-93e7-476b-8986-6d83f94bfc53" with name Test Team 8
+2025-09-04 13:55:47.001 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[DepartmentId], [t0].[Description], [t0].[LeaderId], [t0].[Name], [t0].[UpdatedAt], [t0].[Id0], [t0].[CreatedAt0], [t0].[CreatedBy0], [t0].[DepartmentDescription], [t0].[IsBillable], [t0].[Name0], [t0].[Status], [t0].[UpdatedAt0], [t0].[Id1], [t0].[AvailableHours], [t0].[CreatedAt1], [t0].[Email], [t0].[IsActive], [t0].[JobTitle], [t0].[Name1], [t0].[PasswordHash], [t0].[Role], [t0].[UpdatedAt1], [t0].[Id2], [t0].[AvailableHours0], [t0].[CreatedAt2], [t0].[Email0], [t0].[IsActive0], [t0].[JobTitle0], [t0].[Name2], [t0].[PasswordHash0], [t0].[Role0], [t0].[UpdatedAt2], [t1].[TeamId], [t1].[UserId], [t1].[JoinedAt], [t1].[Id], [t1].[AvailableHours], [t1].[CreatedAt], [t1].[Email], [t1].[IsActive], [t1].[JobTitle], [t1].[Name], [t1].[PasswordHash], [t1].[Role], [t1].[UpdatedAt], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t3].[ClientEmail], [t3].[ClientName], [t3].[CreatedAt], [t3].[CreatedBy], [t3].[Description], [t3].[IsBillable], [t3].[Name], [t3].[ProjectType], [t3].[Status], [t3].[UpdatedAt], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t5].[CreatedAt], [t5].[CreatedBy], [t5].[IsBillable], [t5].[Name], [t5].[ProductDescription], [t5].[Status], [t5].[UpdatedAt], [t7].[TeamId], [t7].[DepartmentId], [t7].[Id], [t7].[CreatedAt], [t7].[CreatedBy], [t7].[DepartmentDescription], [t7].[IsBillable], [t7].[Name], [t7].[Status], [t7].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [t].[Id], [t].[CreatedAt], [t].[CreatedBy], [t].[DepartmentId], [t].[Description], [t].[LeaderId], [t].[Name], [t].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0], [u].[Id] AS [Id1], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt1], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name1], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt1], [u0].[Id] AS [Id2], [u0].[AvailableHours] AS [AvailableHours0], [u0].[CreatedAt] AS [CreatedAt2], [u0].[Email] AS [Email0], [u0].[IsActive] AS [IsActive0], [u0].[JobTitle] AS [JobTitle0], [u0].[Name] AS [Name2], [u0].[PasswordHash] AS [PasswordHash0], [u0].[Role] AS [Role0], [u0].[UpdatedAt] AS [UpdatedAt2]
+    FROM [Teams] AS [t]
+    INNER JOIN [Departments] AS [d] ON [t].[DepartmentId] = [d].[Id]
+    LEFT JOIN [Users] AS [u] ON [t].[LeaderId] = [u].[Id]
+    INNER JOIN [Users] AS [u0] ON [t].[CreatedBy] = [u0].[Id]
+    WHERE [t].[Id] = @__id_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [t2].[TeamId], [t2].[UserId], [t2].[JoinedAt], [u1].[Id], [u1].[AvailableHours], [u1].[CreatedAt], [u1].[Email], [u1].[IsActive], [u1].[JobTitle], [u1].[Name], [u1].[PasswordHash], [u1].[Role], [u1].[UpdatedAt]
+    FROM [TeamMembers] AS [t2]
+    INNER JOIN [Users] AS [u1] ON [t2].[UserId] = [u1].[Id]
+) AS [t1] ON [t0].[Id] = [t1].[TeamId]
+LEFT JOIN (
+    SELECT [t4].[TeamId], [t4].[ProjectId], [p].[Id], [p].[ClientEmail], [p].[ClientName], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsBillable], [p].[Name], [p].[ProjectType], [p].[Status], [p].[UpdatedAt]
+    FROM [TeamProjects] AS [t4]
+    INNER JOIN [Projects] AS [p] ON [t4].[ProjectId] = [p].[Id]
+) AS [t3] ON [t0].[Id] = [t3].[TeamId]
+LEFT JOIN (
+    SELECT [t6].[TeamId], [t6].[ProductId], [p0].[Id], [p0].[CreatedAt], [p0].[CreatedBy], [p0].[IsBillable], [p0].[Name], [p0].[ProductDescription], [p0].[Status], [p0].[UpdatedAt]
+    FROM [TeamProducts] AS [t6]
+    INNER JOIN [Products] AS [p0] ON [t6].[ProductId] = [p0].[Id]
+) AS [t5] ON [t0].[Id] = [t5].[TeamId]
+LEFT JOIN (
+    SELECT [t8].[TeamId], [t8].[DepartmentId], [d0].[Id], [d0].[CreatedAt], [d0].[CreatedBy], [d0].[DepartmentDescription], [d0].[IsBillable], [d0].[Name], [d0].[Status], [d0].[UpdatedAt]
+    FROM [TeamDepartments] AS [t8]
+    INNER JOIN [Departments] AS [d0] ON [t8].[DepartmentId] = [d0].[Id]
+) AS [t7] ON [t0].[Id] = [t7].[TeamId]
+ORDER BY [t0].[Id], [t0].[Id0], [t0].[Id1], [t0].[Id2], [t1].[TeamId], [t1].[UserId], [t1].[Id], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t7].[TeamId], [t7].[DepartmentId]
+2025-09-04 13:55:47.010 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.TeamDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:55:47.012 +05:00 [INF] Executed action TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne) in 20.6395ms
+2025-09-04 13:55:47.019 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:55:47.022 +05:00 [INF] HTTP POST /api/teams responded 201 in 35.5575 ms
+2025-09-04 13:55:47.026 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/teams - 201 null application/json; charset=utf-8 47.2093ms
+2025-09-04 13:55:54.758 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/users - null null
+2025-09-04 13:55:54.764 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.UsersController.GetUsers (TimeTraceOne)'
+2025-09-04 13:55:54.771 +05:00 [INF] Route matched with {action = "GetUsers", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.PaginatedResponse`1[TimeTraceOne.DTOs.UserListDto]]] GetUsers(TimeTraceOne.DTOs.UserFilterDto) on controller TimeTraceOne.Controllers.UsersController (TimeTraceOne).
+2025-09-04 13:55:54.796 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+2025-09-04 13:55:54.816 +05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AvailableHours], [t].[CreatedAt], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt], [t1].[TeamId], [t1].[UserId], [t1].[JoinedAt], [t1].[Id], [t1].[CreatedAt], [t1].[CreatedBy], [t1].[DepartmentId], [t1].[Description], [t1].[LeaderId], [t1].[Name], [t1].[UpdatedAt]
+FROM (
+    SELECT [u].[Id], [u].[AvailableHours], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt]
+    FROM [Users] AS [u]
+    ORDER BY [u].[Name]
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN (
+    SELECT [t0].[TeamId], [t0].[UserId], [t0].[JoinedAt], [t2].[Id], [t2].[CreatedAt], [t2].[CreatedBy], [t2].[DepartmentId], [t2].[Description], [t2].[LeaderId], [t2].[Name], [t2].[UpdatedAt]
+    FROM [TeamMembers] AS [t0]
+    INNER JOIN [Teams] AS [t2] ON [t0].[TeamId] = [t2].[Id]
+) AS [t1] ON [t].[Id] = [t1].[UserId]
+ORDER BY [t].[Name], [t].[Id], [t1].[TeamId], [t1].[UserId]
+2025-09-04 13:55:54.830 +05:00 [INF] Executing OkObjectResult, writing value of type 'TimeTraceOne.DTOs.PaginatedResponse`1[[TimeTraceOne.DTOs.UserListDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:55:54.836 +05:00 [INF] Executed action TimeTraceOne.Controllers.UsersController.GetUsers (TimeTraceOne) in 60.7441ms
+2025-09-04 13:55:54.843 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.UsersController.GetUsers (TimeTraceOne)'
+2025-09-04 13:55:54.847 +05:00 [INF] HTTP GET /api/users responded 200 in 84.0662 ms
+2025-09-04 13:55:54.852 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/users - 200 null application/json; charset=utf-8 94.2457ms
+2025-09-04 13:56:00.738 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/users - null null
+2025-09-04 13:56:00.742 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.UsersController.GetUsers (TimeTraceOne)'
+2025-09-04 13:56:00.744 +05:00 [INF] Route matched with {action = "GetUsers", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.PaginatedResponse`1[TimeTraceOne.DTOs.UserListDto]]] GetUsers(TimeTraceOne.DTOs.UserFilterDto) on controller TimeTraceOne.Controllers.UsersController (TimeTraceOne).
+2025-09-04 13:56:00.750 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+2025-09-04 13:56:00.755 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AvailableHours], [t].[CreatedAt], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt], [t1].[TeamId], [t1].[UserId], [t1].[JoinedAt], [t1].[Id], [t1].[CreatedAt], [t1].[CreatedBy], [t1].[DepartmentId], [t1].[Description], [t1].[LeaderId], [t1].[Name], [t1].[UpdatedAt]
+FROM (
+    SELECT [u].[Id], [u].[AvailableHours], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt]
+    FROM [Users] AS [u]
+    ORDER BY [u].[Name]
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN (
+    SELECT [t0].[TeamId], [t0].[UserId], [t0].[JoinedAt], [t2].[Id], [t2].[CreatedAt], [t2].[CreatedBy], [t2].[DepartmentId], [t2].[Description], [t2].[LeaderId], [t2].[Name], [t2].[UpdatedAt]
+    FROM [TeamMembers] AS [t0]
+    INNER JOIN [Teams] AS [t2] ON [t0].[TeamId] = [t2].[Id]
+) AS [t1] ON [t].[Id] = [t1].[UserId]
+ORDER BY [t].[Name], [t].[Id], [t1].[TeamId], [t1].[UserId]
+2025-09-04 13:56:00.759 +05:00 [INF] Executing OkObjectResult, writing value of type 'TimeTraceOne.DTOs.PaginatedResponse`1[[TimeTraceOne.DTOs.UserListDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:56:00.762 +05:00 [INF] Executed action TimeTraceOne.Controllers.UsersController.GetUsers (TimeTraceOne) in 13.9593ms
+2025-09-04 13:56:00.768 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.UsersController.GetUsers (TimeTraceOne)'
+2025-09-04 13:56:00.773 +05:00 [INF] HTTP GET /api/users responded 200 in 31.1533 ms
+2025-09-04 13:56:00.777 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/users - 200 null application/json; charset=utf-8 39.0951ms
+2025-09-04 13:56:57.827 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/teams - application/json 154
+2025-09-04 13:56:57.832 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:56:57.834 +05:00 [INF] Route matched with {action = "CreateTeam", controller = "Teams"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.TeamDto]] CreateTeam(TimeTraceOne.DTOs.CreateTeamDto) on controller TimeTraceOne.Controllers.TeamsController (TimeTraceOne).
+2025-09-04 13:56:57.843 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Guid), @p3='?' (DbType = Guid), @p4='?' (Size = 2000), @p5='?' (DbType = Guid), @p6='?' (Size = 100), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Teams] ([Id], [CreatedAt], [CreatedBy], [DepartmentId], [Description], [LeaderId], [Name], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-09-04 13:56:57.849 +05:00 [INF] Created team "798b839a-d4b2-4fbc-a646-2bb71ca2886d" with name Test Team 8
+2025-09-04 13:56:57.863 +05:00 [INF] Executed DbCommand (11ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[DepartmentId], [t0].[Description], [t0].[LeaderId], [t0].[Name], [t0].[UpdatedAt], [t0].[Id0], [t0].[CreatedAt0], [t0].[CreatedBy0], [t0].[DepartmentDescription], [t0].[IsBillable], [t0].[Name0], [t0].[Status], [t0].[UpdatedAt0], [t0].[Id1], [t0].[AvailableHours], [t0].[CreatedAt1], [t0].[Email], [t0].[IsActive], [t0].[JobTitle], [t0].[Name1], [t0].[PasswordHash], [t0].[Role], [t0].[UpdatedAt1], [t0].[Id2], [t0].[AvailableHours0], [t0].[CreatedAt2], [t0].[Email0], [t0].[IsActive0], [t0].[JobTitle0], [t0].[Name2], [t0].[PasswordHash0], [t0].[Role0], [t0].[UpdatedAt2], [t1].[TeamId], [t1].[UserId], [t1].[JoinedAt], [t1].[Id], [t1].[AvailableHours], [t1].[CreatedAt], [t1].[Email], [t1].[IsActive], [t1].[JobTitle], [t1].[Name], [t1].[PasswordHash], [t1].[Role], [t1].[UpdatedAt], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t3].[ClientEmail], [t3].[ClientName], [t3].[CreatedAt], [t3].[CreatedBy], [t3].[Description], [t3].[IsBillable], [t3].[Name], [t3].[ProjectType], [t3].[Status], [t3].[UpdatedAt], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t5].[CreatedAt], [t5].[CreatedBy], [t5].[IsBillable], [t5].[Name], [t5].[ProductDescription], [t5].[Status], [t5].[UpdatedAt], [t7].[TeamId], [t7].[DepartmentId], [t7].[Id], [t7].[CreatedAt], [t7].[CreatedBy], [t7].[DepartmentDescription], [t7].[IsBillable], [t7].[Name], [t7].[Status], [t7].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [t].[Id], [t].[CreatedAt], [t].[CreatedBy], [t].[DepartmentId], [t].[Description], [t].[LeaderId], [t].[Name], [t].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0], [u].[Id] AS [Id1], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt1], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name1], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt1], [u0].[Id] AS [Id2], [u0].[AvailableHours] AS [AvailableHours0], [u0].[CreatedAt] AS [CreatedAt2], [u0].[Email] AS [Email0], [u0].[IsActive] AS [IsActive0], [u0].[JobTitle] AS [JobTitle0], [u0].[Name] AS [Name2], [u0].[PasswordHash] AS [PasswordHash0], [u0].[Role] AS [Role0], [u0].[UpdatedAt] AS [UpdatedAt2]
+    FROM [Teams] AS [t]
+    INNER JOIN [Departments] AS [d] ON [t].[DepartmentId] = [d].[Id]
+    LEFT JOIN [Users] AS [u] ON [t].[LeaderId] = [u].[Id]
+    INNER JOIN [Users] AS [u0] ON [t].[CreatedBy] = [u0].[Id]
+    WHERE [t].[Id] = @__id_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [t2].[TeamId], [t2].[UserId], [t2].[JoinedAt], [u1].[Id], [u1].[AvailableHours], [u1].[CreatedAt], [u1].[Email], [u1].[IsActive], [u1].[JobTitle], [u1].[Name], [u1].[PasswordHash], [u1].[Role], [u1].[UpdatedAt]
+    FROM [TeamMembers] AS [t2]
+    INNER JOIN [Users] AS [u1] ON [t2].[UserId] = [u1].[Id]
+) AS [t1] ON [t0].[Id] = [t1].[TeamId]
+LEFT JOIN (
+    SELECT [t4].[TeamId], [t4].[ProjectId], [p].[Id], [p].[ClientEmail], [p].[ClientName], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsBillable], [p].[Name], [p].[ProjectType], [p].[Status], [p].[UpdatedAt]
+    FROM [TeamProjects] AS [t4]
+    INNER JOIN [Projects] AS [p] ON [t4].[ProjectId] = [p].[Id]
+) AS [t3] ON [t0].[Id] = [t3].[TeamId]
+LEFT JOIN (
+    SELECT [t6].[TeamId], [t6].[ProductId], [p0].[Id], [p0].[CreatedAt], [p0].[CreatedBy], [p0].[IsBillable], [p0].[Name], [p0].[ProductDescription], [p0].[Status], [p0].[UpdatedAt]
+    FROM [TeamProducts] AS [t6]
+    INNER JOIN [Products] AS [p0] ON [t6].[ProductId] = [p0].[Id]
+) AS [t5] ON [t0].[Id] = [t5].[TeamId]
+LEFT JOIN (
+    SELECT [t8].[TeamId], [t8].[DepartmentId], [d0].[Id], [d0].[CreatedAt], [d0].[CreatedBy], [d0].[DepartmentDescription], [d0].[IsBillable], [d0].[Name], [d0].[Status], [d0].[UpdatedAt]
+    FROM [TeamDepartments] AS [t8]
+    INNER JOIN [Departments] AS [d0] ON [t8].[DepartmentId] = [d0].[Id]
+) AS [t7] ON [t0].[Id] = [t7].[TeamId]
+ORDER BY [t0].[Id], [t0].[Id0], [t0].[Id1], [t0].[Id2], [t1].[TeamId], [t1].[UserId], [t1].[Id], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t7].[TeamId], [t7].[DepartmentId]
+2025-09-04 13:56:57.870 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.TeamDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:56:57.873 +05:00 [INF] Executed action TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne) in 35.7533ms
+2025-09-04 13:56:57.883 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:56:57.887 +05:00 [INF] HTTP POST /api/teams responded 201 in 54.7518 ms
+2025-09-04 13:56:57.891 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/teams - 201 null application/json; charset=utf-8 63.3888ms
+2025-09-04 13:57:06.325 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/teams - application/json 154
+2025-09-04 13:57:06.330 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:57:06.331 +05:00 [INF] Route matched with {action = "CreateTeam", controller = "Teams"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.TeamDto]] CreateTeam(TimeTraceOne.DTOs.CreateTeamDto) on controller TimeTraceOne.Controllers.TeamsController (TimeTraceOne).
+2025-09-04 13:57:06.339 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Guid), @p3='?' (DbType = Guid), @p4='?' (Size = 2000), @p5='?' (DbType = Guid), @p6='?' (Size = 100), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Teams] ([Id], [CreatedAt], [CreatedBy], [DepartmentId], [Description], [LeaderId], [Name], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-09-04 13:57:06.344 +05:00 [INF] Created team "bb0d6cdc-edcc-4bc7-80f6-a9c5d1dcb715" with name Test Team 8
+2025-09-04 13:57:06.347 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[DepartmentId], [t0].[Description], [t0].[LeaderId], [t0].[Name], [t0].[UpdatedAt], [t0].[Id0], [t0].[CreatedAt0], [t0].[CreatedBy0], [t0].[DepartmentDescription], [t0].[IsBillable], [t0].[Name0], [t0].[Status], [t0].[UpdatedAt0], [t0].[Id1], [t0].[AvailableHours], [t0].[CreatedAt1], [t0].[Email], [t0].[IsActive], [t0].[JobTitle], [t0].[Name1], [t0].[PasswordHash], [t0].[Role], [t0].[UpdatedAt1], [t0].[Id2], [t0].[AvailableHours0], [t0].[CreatedAt2], [t0].[Email0], [t0].[IsActive0], [t0].[JobTitle0], [t0].[Name2], [t0].[PasswordHash0], [t0].[Role0], [t0].[UpdatedAt2], [t1].[TeamId], [t1].[UserId], [t1].[JoinedAt], [t1].[Id], [t1].[AvailableHours], [t1].[CreatedAt], [t1].[Email], [t1].[IsActive], [t1].[JobTitle], [t1].[Name], [t1].[PasswordHash], [t1].[Role], [t1].[UpdatedAt], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t3].[ClientEmail], [t3].[ClientName], [t3].[CreatedAt], [t3].[CreatedBy], [t3].[Description], [t3].[IsBillable], [t3].[Name], [t3].[ProjectType], [t3].[Status], [t3].[UpdatedAt], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t5].[CreatedAt], [t5].[CreatedBy], [t5].[IsBillable], [t5].[Name], [t5].[ProductDescription], [t5].[Status], [t5].[UpdatedAt], [t7].[TeamId], [t7].[DepartmentId], [t7].[Id], [t7].[CreatedAt], [t7].[CreatedBy], [t7].[DepartmentDescription], [t7].[IsBillable], [t7].[Name], [t7].[Status], [t7].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [t].[Id], [t].[CreatedAt], [t].[CreatedBy], [t].[DepartmentId], [t].[Description], [t].[LeaderId], [t].[Name], [t].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0], [u].[Id] AS [Id1], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt1], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name1], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt1], [u0].[Id] AS [Id2], [u0].[AvailableHours] AS [AvailableHours0], [u0].[CreatedAt] AS [CreatedAt2], [u0].[Email] AS [Email0], [u0].[IsActive] AS [IsActive0], [u0].[JobTitle] AS [JobTitle0], [u0].[Name] AS [Name2], [u0].[PasswordHash] AS [PasswordHash0], [u0].[Role] AS [Role0], [u0].[UpdatedAt] AS [UpdatedAt2]
+    FROM [Teams] AS [t]
+    INNER JOIN [Departments] AS [d] ON [t].[DepartmentId] = [d].[Id]
+    LEFT JOIN [Users] AS [u] ON [t].[LeaderId] = [u].[Id]
+    INNER JOIN [Users] AS [u0] ON [t].[CreatedBy] = [u0].[Id]
+    WHERE [t].[Id] = @__id_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [t2].[TeamId], [t2].[UserId], [t2].[JoinedAt], [u1].[Id], [u1].[AvailableHours], [u1].[CreatedAt], [u1].[Email], [u1].[IsActive], [u1].[JobTitle], [u1].[Name], [u1].[PasswordHash], [u1].[Role], [u1].[UpdatedAt]
+    FROM [TeamMembers] AS [t2]
+    INNER JOIN [Users] AS [u1] ON [t2].[UserId] = [u1].[Id]
+) AS [t1] ON [t0].[Id] = [t1].[TeamId]
+LEFT JOIN (
+    SELECT [t4].[TeamId], [t4].[ProjectId], [p].[Id], [p].[ClientEmail], [p].[ClientName], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsBillable], [p].[Name], [p].[ProjectType], [p].[Status], [p].[UpdatedAt]
+    FROM [TeamProjects] AS [t4]
+    INNER JOIN [Projects] AS [p] ON [t4].[ProjectId] = [p].[Id]
+) AS [t3] ON [t0].[Id] = [t3].[TeamId]
+LEFT JOIN (
+    SELECT [t6].[TeamId], [t6].[ProductId], [p0].[Id], [p0].[CreatedAt], [p0].[CreatedBy], [p0].[IsBillable], [p0].[Name], [p0].[ProductDescription], [p0].[Status], [p0].[UpdatedAt]
+    FROM [TeamProducts] AS [t6]
+    INNER JOIN [Products] AS [p0] ON [t6].[ProductId] = [p0].[Id]
+) AS [t5] ON [t0].[Id] = [t5].[TeamId]
+LEFT JOIN (
+    SELECT [t8].[TeamId], [t8].[DepartmentId], [d0].[Id], [d0].[CreatedAt], [d0].[CreatedBy], [d0].[DepartmentDescription], [d0].[IsBillable], [d0].[Name], [d0].[Status], [d0].[UpdatedAt]
+    FROM [TeamDepartments] AS [t8]
+    INNER JOIN [Departments] AS [d0] ON [t8].[DepartmentId] = [d0].[Id]
+) AS [t7] ON [t0].[Id] = [t7].[TeamId]
+ORDER BY [t0].[Id], [t0].[Id0], [t0].[Id1], [t0].[Id2], [t1].[TeamId], [t1].[UserId], [t1].[Id], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t7].[TeamId], [t7].[DepartmentId]
+2025-09-04 13:57:06.354 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.TeamDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:57:06.357 +05:00 [INF] Executed action TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne) in 22.3823ms
+2025-09-04 13:57:06.362 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:57:06.369 +05:00 [INF] HTTP POST /api/teams responded 201 in 39.3385 ms
+2025-09-04 13:57:06.373 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/teams - 201 null application/json; charset=utf-8 47.938ms
+2025-09-04 13:57:31.925 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/teams - application/json 154
+2025-09-04 13:57:31.929 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:57:31.931 +05:00 [INF] Route matched with {action = "CreateTeam", controller = "Teams"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.TeamDto]] CreateTeam(TimeTraceOne.DTOs.CreateTeamDto) on controller TimeTraceOne.Controllers.TeamsController (TimeTraceOne).
+2025-09-04 13:57:31.938 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Guid), @p3='?' (DbType = Guid), @p4='?' (Size = 2000), @p5='?' (DbType = Guid), @p6='?' (Size = 100), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Teams] ([Id], [CreatedAt], [CreatedBy], [DepartmentId], [Description], [LeaderId], [Name], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-09-04 13:57:31.943 +05:00 [INF] Created team "b13bf47f-b552-47e1-95cb-7d425b64893f" with name Test Team 8
+2025-09-04 13:57:31.958 +05:00 [INF] Executed DbCommand (12ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[DepartmentId], [t0].[Description], [t0].[LeaderId], [t0].[Name], [t0].[UpdatedAt], [t0].[Id0], [t0].[CreatedAt0], [t0].[CreatedBy0], [t0].[DepartmentDescription], [t0].[IsBillable], [t0].[Name0], [t0].[Status], [t0].[UpdatedAt0], [t0].[Id1], [t0].[AvailableHours], [t0].[CreatedAt1], [t0].[Email], [t0].[IsActive], [t0].[JobTitle], [t0].[Name1], [t0].[PasswordHash], [t0].[Role], [t0].[UpdatedAt1], [t0].[Id2], [t0].[AvailableHours0], [t0].[CreatedAt2], [t0].[Email0], [t0].[IsActive0], [t0].[JobTitle0], [t0].[Name2], [t0].[PasswordHash0], [t0].[Role0], [t0].[UpdatedAt2], [t1].[TeamId], [t1].[UserId], [t1].[JoinedAt], [t1].[Id], [t1].[AvailableHours], [t1].[CreatedAt], [t1].[Email], [t1].[IsActive], [t1].[JobTitle], [t1].[Name], [t1].[PasswordHash], [t1].[Role], [t1].[UpdatedAt], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t3].[ClientEmail], [t3].[ClientName], [t3].[CreatedAt], [t3].[CreatedBy], [t3].[Description], [t3].[IsBillable], [t3].[Name], [t3].[ProjectType], [t3].[Status], [t3].[UpdatedAt], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t5].[CreatedAt], [t5].[CreatedBy], [t5].[IsBillable], [t5].[Name], [t5].[ProductDescription], [t5].[Status], [t5].[UpdatedAt], [t7].[TeamId], [t7].[DepartmentId], [t7].[Id], [t7].[CreatedAt], [t7].[CreatedBy], [t7].[DepartmentDescription], [t7].[IsBillable], [t7].[Name], [t7].[Status], [t7].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [t].[Id], [t].[CreatedAt], [t].[CreatedBy], [t].[DepartmentId], [t].[Description], [t].[LeaderId], [t].[Name], [t].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0], [u].[Id] AS [Id1], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt1], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name1], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt1], [u0].[Id] AS [Id2], [u0].[AvailableHours] AS [AvailableHours0], [u0].[CreatedAt] AS [CreatedAt2], [u0].[Email] AS [Email0], [u0].[IsActive] AS [IsActive0], [u0].[JobTitle] AS [JobTitle0], [u0].[Name] AS [Name2], [u0].[PasswordHash] AS [PasswordHash0], [u0].[Role] AS [Role0], [u0].[UpdatedAt] AS [UpdatedAt2]
+    FROM [Teams] AS [t]
+    INNER JOIN [Departments] AS [d] ON [t].[DepartmentId] = [d].[Id]
+    LEFT JOIN [Users] AS [u] ON [t].[LeaderId] = [u].[Id]
+    INNER JOIN [Users] AS [u0] ON [t].[CreatedBy] = [u0].[Id]
+    WHERE [t].[Id] = @__id_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [t2].[TeamId], [t2].[UserId], [t2].[JoinedAt], [u1].[Id], [u1].[AvailableHours], [u1].[CreatedAt], [u1].[Email], [u1].[IsActive], [u1].[JobTitle], [u1].[Name], [u1].[PasswordHash], [u1].[Role], [u1].[UpdatedAt]
+    FROM [TeamMembers] AS [t2]
+    INNER JOIN [Users] AS [u1] ON [t2].[UserId] = [u1].[Id]
+) AS [t1] ON [t0].[Id] = [t1].[TeamId]
+LEFT JOIN (
+    SELECT [t4].[TeamId], [t4].[ProjectId], [p].[Id], [p].[ClientEmail], [p].[ClientName], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsBillable], [p].[Name], [p].[ProjectType], [p].[Status], [p].[UpdatedAt]
+    FROM [TeamProjects] AS [t4]
+    INNER JOIN [Projects] AS [p] ON [t4].[ProjectId] = [p].[Id]
+) AS [t3] ON [t0].[Id] = [t3].[TeamId]
+LEFT JOIN (
+    SELECT [t6].[TeamId], [t6].[ProductId], [p0].[Id], [p0].[CreatedAt], [p0].[CreatedBy], [p0].[IsBillable], [p0].[Name], [p0].[ProductDescription], [p0].[Status], [p0].[UpdatedAt]
+    FROM [TeamProducts] AS [t6]
+    INNER JOIN [Products] AS [p0] ON [t6].[ProductId] = [p0].[Id]
+) AS [t5] ON [t0].[Id] = [t5].[TeamId]
+LEFT JOIN (
+    SELECT [t8].[TeamId], [t8].[DepartmentId], [d0].[Id], [d0].[CreatedAt], [d0].[CreatedBy], [d0].[DepartmentDescription], [d0].[IsBillable], [d0].[Name], [d0].[Status], [d0].[UpdatedAt]
+    FROM [TeamDepartments] AS [t8]
+    INNER JOIN [Departments] AS [d0] ON [t8].[DepartmentId] = [d0].[Id]
+) AS [t7] ON [t0].[Id] = [t7].[TeamId]
+ORDER BY [t0].[Id], [t0].[Id0], [t0].[Id1], [t0].[Id2], [t1].[TeamId], [t1].[UserId], [t1].[Id], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t7].[TeamId], [t7].[DepartmentId]
+2025-09-04 13:57:31.971 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.TeamDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:57:31.975 +05:00 [INF] Executed action TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne) in 40.9588ms
+2025-09-04 13:57:31.983 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:57:31.987 +05:00 [INF] HTTP POST /api/teams responded 201 in 57.4112 ms
+2025-09-04 13:57:31.990 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/teams - 201 null application/json; charset=utf-8 64.816ms
+2025-09-04 13:57:38.336 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/users - null null
+2025-09-04 13:57:38.342 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.UsersController.GetUsers (TimeTraceOne)'
+2025-09-04 13:57:38.345 +05:00 [INF] Route matched with {action = "GetUsers", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.PaginatedResponse`1[TimeTraceOne.DTOs.UserListDto]]] GetUsers(TimeTraceOne.DTOs.UserFilterDto) on controller TimeTraceOne.Controllers.UsersController (TimeTraceOne).
+2025-09-04 13:57:38.352 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+2025-09-04 13:57:38.366 +05:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AvailableHours], [t].[CreatedAt], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt], [t1].[TeamId], [t1].[UserId], [t1].[JoinedAt], [t1].[Id], [t1].[CreatedAt], [t1].[CreatedBy], [t1].[DepartmentId], [t1].[Description], [t1].[LeaderId], [t1].[Name], [t1].[UpdatedAt]
+FROM (
+    SELECT [u].[Id], [u].[AvailableHours], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt]
+    FROM [Users] AS [u]
+    ORDER BY [u].[Name]
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN (
+    SELECT [t0].[TeamId], [t0].[UserId], [t0].[JoinedAt], [t2].[Id], [t2].[CreatedAt], [t2].[CreatedBy], [t2].[DepartmentId], [t2].[Description], [t2].[LeaderId], [t2].[Name], [t2].[UpdatedAt]
+    FROM [TeamMembers] AS [t0]
+    INNER JOIN [Teams] AS [t2] ON [t0].[TeamId] = [t2].[Id]
+) AS [t1] ON [t].[Id] = [t1].[UserId]
+ORDER BY [t].[Name], [t].[Id], [t1].[TeamId], [t1].[UserId]
+2025-09-04 13:57:38.372 +05:00 [INF] Executing OkObjectResult, writing value of type 'TimeTraceOne.DTOs.PaginatedResponse`1[[TimeTraceOne.DTOs.UserListDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:57:38.375 +05:00 [INF] Executed action TimeTraceOne.Controllers.UsersController.GetUsers (TimeTraceOne) in 25.0412ms
+2025-09-04 13:57:38.380 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.UsersController.GetUsers (TimeTraceOne)'
+2025-09-04 13:57:38.383 +05:00 [INF] HTTP GET /api/users responded 200 in 40.6891 ms
+2025-09-04 13:57:38.386 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/users - 200 null application/json; charset=utf-8 49.8026ms
+2025-09-04 13:57:47.644 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/users - null null
+2025-09-04 13:57:47.649 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.UsersController.GetUsers (TimeTraceOne)'
+2025-09-04 13:57:47.651 +05:00 [INF] Route matched with {action = "GetUsers", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.PaginatedResponse`1[TimeTraceOne.DTOs.UserListDto]]] GetUsers(TimeTraceOne.DTOs.UserFilterDto) on controller TimeTraceOne.Controllers.UsersController (TimeTraceOne).
+2025-09-04 13:57:47.657 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+2025-09-04 13:57:47.666 +05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AvailableHours], [t].[CreatedAt], [t].[Email], [t].[IsActive], [t].[JobTitle], [t].[Name], [t].[PasswordHash], [t].[Role], [t].[UpdatedAt], [t1].[TeamId], [t1].[UserId], [t1].[JoinedAt], [t1].[Id], [t1].[CreatedAt], [t1].[CreatedBy], [t1].[DepartmentId], [t1].[Description], [t1].[LeaderId], [t1].[Name], [t1].[UpdatedAt]
+FROM (
+    SELECT [u].[Id], [u].[AvailableHours], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt]
+    FROM [Users] AS [u]
+    ORDER BY [u].[Name]
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN (
+    SELECT [t0].[TeamId], [t0].[UserId], [t0].[JoinedAt], [t2].[Id], [t2].[CreatedAt], [t2].[CreatedBy], [t2].[DepartmentId], [t2].[Description], [t2].[LeaderId], [t2].[Name], [t2].[UpdatedAt]
+    FROM [TeamMembers] AS [t0]
+    INNER JOIN [Teams] AS [t2] ON [t0].[TeamId] = [t2].[Id]
+) AS [t1] ON [t].[Id] = [t1].[UserId]
+ORDER BY [t].[Name], [t].[Id], [t1].[TeamId], [t1].[UserId]
+2025-09-04 13:57:47.670 +05:00 [INF] Executing OkObjectResult, writing value of type 'TimeTraceOne.DTOs.PaginatedResponse`1[[TimeTraceOne.DTOs.UserListDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:57:47.673 +05:00 [INF] Executed action TimeTraceOne.Controllers.UsersController.GetUsers (TimeTraceOne) in 18.3846ms
+2025-09-04 13:57:47.681 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.UsersController.GetUsers (TimeTraceOne)'
+2025-09-04 13:57:47.685 +05:00 [INF] HTTP GET /api/users responded 200 in 35.7729 ms
+2025-09-04 13:57:47.689 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/users - 200 null application/json; charset=utf-8 44.3858ms
+2025-09-04 13:58:01.638 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/teams - application/json 154
+2025-09-04 13:58:01.644 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:58:01.646 +05:00 [INF] Route matched with {action = "CreateTeam", controller = "Teams"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.TeamDto]] CreateTeam(TimeTraceOne.DTOs.CreateTeamDto) on controller TimeTraceOne.Controllers.TeamsController (TimeTraceOne).
+2025-09-04 13:58:01.652 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Guid), @p3='?' (DbType = Guid), @p4='?' (Size = 2000), @p5='?' (DbType = Guid), @p6='?' (Size = 100), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Teams] ([Id], [CreatedAt], [CreatedBy], [DepartmentId], [Description], [LeaderId], [Name], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-09-04 13:58:01.656 +05:00 [INF] Created team "c9991ffa-19b8-4cbc-a67c-55e941a6f5dd" with name Test Team 8
+2025-09-04 13:58:01.671 +05:00 [INF] Executed DbCommand (13ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[DepartmentId], [t0].[Description], [t0].[LeaderId], [t0].[Name], [t0].[UpdatedAt], [t0].[Id0], [t0].[CreatedAt0], [t0].[CreatedBy0], [t0].[DepartmentDescription], [t0].[IsBillable], [t0].[Name0], [t0].[Status], [t0].[UpdatedAt0], [t0].[Id1], [t0].[AvailableHours], [t0].[CreatedAt1], [t0].[Email], [t0].[IsActive], [t0].[JobTitle], [t0].[Name1], [t0].[PasswordHash], [t0].[Role], [t0].[UpdatedAt1], [t0].[Id2], [t0].[AvailableHours0], [t0].[CreatedAt2], [t0].[Email0], [t0].[IsActive0], [t0].[JobTitle0], [t0].[Name2], [t0].[PasswordHash0], [t0].[Role0], [t0].[UpdatedAt2], [t1].[TeamId], [t1].[UserId], [t1].[JoinedAt], [t1].[Id], [t1].[AvailableHours], [t1].[CreatedAt], [t1].[Email], [t1].[IsActive], [t1].[JobTitle], [t1].[Name], [t1].[PasswordHash], [t1].[Role], [t1].[UpdatedAt], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t3].[ClientEmail], [t3].[ClientName], [t3].[CreatedAt], [t3].[CreatedBy], [t3].[Description], [t3].[IsBillable], [t3].[Name], [t3].[ProjectType], [t3].[Status], [t3].[UpdatedAt], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t5].[CreatedAt], [t5].[CreatedBy], [t5].[IsBillable], [t5].[Name], [t5].[ProductDescription], [t5].[Status], [t5].[UpdatedAt], [t7].[TeamId], [t7].[DepartmentId], [t7].[Id], [t7].[CreatedAt], [t7].[CreatedBy], [t7].[DepartmentDescription], [t7].[IsBillable], [t7].[Name], [t7].[Status], [t7].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [t].[Id], [t].[CreatedAt], [t].[CreatedBy], [t].[DepartmentId], [t].[Description], [t].[LeaderId], [t].[Name], [t].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0], [u].[Id] AS [Id1], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt1], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name1], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt1], [u0].[Id] AS [Id2], [u0].[AvailableHours] AS [AvailableHours0], [u0].[CreatedAt] AS [CreatedAt2], [u0].[Email] AS [Email0], [u0].[IsActive] AS [IsActive0], [u0].[JobTitle] AS [JobTitle0], [u0].[Name] AS [Name2], [u0].[PasswordHash] AS [PasswordHash0], [u0].[Role] AS [Role0], [u0].[UpdatedAt] AS [UpdatedAt2]
+    FROM [Teams] AS [t]
+    INNER JOIN [Departments] AS [d] ON [t].[DepartmentId] = [d].[Id]
+    LEFT JOIN [Users] AS [u] ON [t].[LeaderId] = [u].[Id]
+    INNER JOIN [Users] AS [u0] ON [t].[CreatedBy] = [u0].[Id]
+    WHERE [t].[Id] = @__id_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [t2].[TeamId], [t2].[UserId], [t2].[JoinedAt], [u1].[Id], [u1].[AvailableHours], [u1].[CreatedAt], [u1].[Email], [u1].[IsActive], [u1].[JobTitle], [u1].[Name], [u1].[PasswordHash], [u1].[Role], [u1].[UpdatedAt]
+    FROM [TeamMembers] AS [t2]
+    INNER JOIN [Users] AS [u1] ON [t2].[UserId] = [u1].[Id]
+) AS [t1] ON [t0].[Id] = [t1].[TeamId]
+LEFT JOIN (
+    SELECT [t4].[TeamId], [t4].[ProjectId], [p].[Id], [p].[ClientEmail], [p].[ClientName], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsBillable], [p].[Name], [p].[ProjectType], [p].[Status], [p].[UpdatedAt]
+    FROM [TeamProjects] AS [t4]
+    INNER JOIN [Projects] AS [p] ON [t4].[ProjectId] = [p].[Id]
+) AS [t3] ON [t0].[Id] = [t3].[TeamId]
+LEFT JOIN (
+    SELECT [t6].[TeamId], [t6].[ProductId], [p0].[Id], [p0].[CreatedAt], [p0].[CreatedBy], [p0].[IsBillable], [p0].[Name], [p0].[ProductDescription], [p0].[Status], [p0].[UpdatedAt]
+    FROM [TeamProducts] AS [t6]
+    INNER JOIN [Products] AS [p0] ON [t6].[ProductId] = [p0].[Id]
+) AS [t5] ON [t0].[Id] = [t5].[TeamId]
+LEFT JOIN (
+    SELECT [t8].[TeamId], [t8].[DepartmentId], [d0].[Id], [d0].[CreatedAt], [d0].[CreatedBy], [d0].[DepartmentDescription], [d0].[IsBillable], [d0].[Name], [d0].[Status], [d0].[UpdatedAt]
+    FROM [TeamDepartments] AS [t8]
+    INNER JOIN [Departments] AS [d0] ON [t8].[DepartmentId] = [d0].[Id]
+) AS [t7] ON [t0].[Id] = [t7].[TeamId]
+ORDER BY [t0].[Id], [t0].[Id0], [t0].[Id1], [t0].[Id2], [t1].[TeamId], [t1].[UserId], [t1].[Id], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t7].[TeamId], [t7].[DepartmentId]
+2025-09-04 13:58:01.679 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.TeamDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:58:01.684 +05:00 [INF] Executed action TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne) in 34.7218ms
+2025-09-04 13:58:01.690 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:58:01.694 +05:00 [INF] HTTP POST /api/teams responded 201 in 49.8743 ms
+2025-09-04 13:58:01.699 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/teams - 201 null application/json; charset=utf-8 60.6795ms
+2025-09-04 13:58:12.580 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/teams - application/json 154
+2025-09-04 13:58:12.586 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:58:12.588 +05:00 [INF] Route matched with {action = "CreateTeam", controller = "Teams"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.TeamDto]] CreateTeam(TimeTraceOne.DTOs.CreateTeamDto) on controller TimeTraceOne.Controllers.TeamsController (TimeTraceOne).
+2025-09-04 13:58:12.600 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Guid), @p3='?' (DbType = Guid), @p4='?' (Size = 2000), @p5='?' (DbType = Guid), @p6='?' (Size = 100), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Teams] ([Id], [CreatedAt], [CreatedBy], [DepartmentId], [Description], [LeaderId], [Name], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-09-04 13:58:12.605 +05:00 [INF] Created team "cd170488-e373-495d-96cf-0aa51ff81538" with name Test Team 8
+2025-09-04 13:58:12.608 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[DepartmentId], [t0].[Description], [t0].[LeaderId], [t0].[Name], [t0].[UpdatedAt], [t0].[Id0], [t0].[CreatedAt0], [t0].[CreatedBy0], [t0].[DepartmentDescription], [t0].[IsBillable], [t0].[Name0], [t0].[Status], [t0].[UpdatedAt0], [t0].[Id1], [t0].[AvailableHours], [t0].[CreatedAt1], [t0].[Email], [t0].[IsActive], [t0].[JobTitle], [t0].[Name1], [t0].[PasswordHash], [t0].[Role], [t0].[UpdatedAt1], [t0].[Id2], [t0].[AvailableHours0], [t0].[CreatedAt2], [t0].[Email0], [t0].[IsActive0], [t0].[JobTitle0], [t0].[Name2], [t0].[PasswordHash0], [t0].[Role0], [t0].[UpdatedAt2], [t1].[TeamId], [t1].[UserId], [t1].[JoinedAt], [t1].[Id], [t1].[AvailableHours], [t1].[CreatedAt], [t1].[Email], [t1].[IsActive], [t1].[JobTitle], [t1].[Name], [t1].[PasswordHash], [t1].[Role], [t1].[UpdatedAt], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t3].[ClientEmail], [t3].[ClientName], [t3].[CreatedAt], [t3].[CreatedBy], [t3].[Description], [t3].[IsBillable], [t3].[Name], [t3].[ProjectType], [t3].[Status], [t3].[UpdatedAt], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t5].[CreatedAt], [t5].[CreatedBy], [t5].[IsBillable], [t5].[Name], [t5].[ProductDescription], [t5].[Status], [t5].[UpdatedAt], [t7].[TeamId], [t7].[DepartmentId], [t7].[Id], [t7].[CreatedAt], [t7].[CreatedBy], [t7].[DepartmentDescription], [t7].[IsBillable], [t7].[Name], [t7].[Status], [t7].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [t].[Id], [t].[CreatedAt], [t].[CreatedBy], [t].[DepartmentId], [t].[Description], [t].[LeaderId], [t].[Name], [t].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0], [u].[Id] AS [Id1], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt1], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name1], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt1], [u0].[Id] AS [Id2], [u0].[AvailableHours] AS [AvailableHours0], [u0].[CreatedAt] AS [CreatedAt2], [u0].[Email] AS [Email0], [u0].[IsActive] AS [IsActive0], [u0].[JobTitle] AS [JobTitle0], [u0].[Name] AS [Name2], [u0].[PasswordHash] AS [PasswordHash0], [u0].[Role] AS [Role0], [u0].[UpdatedAt] AS [UpdatedAt2]
+    FROM [Teams] AS [t]
+    INNER JOIN [Departments] AS [d] ON [t].[DepartmentId] = [d].[Id]
+    LEFT JOIN [Users] AS [u] ON [t].[LeaderId] = [u].[Id]
+    INNER JOIN [Users] AS [u0] ON [t].[CreatedBy] = [u0].[Id]
+    WHERE [t].[Id] = @__id_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [t2].[TeamId], [t2].[UserId], [t2].[JoinedAt], [u1].[Id], [u1].[AvailableHours], [u1].[CreatedAt], [u1].[Email], [u1].[IsActive], [u1].[JobTitle], [u1].[Name], [u1].[PasswordHash], [u1].[Role], [u1].[UpdatedAt]
+    FROM [TeamMembers] AS [t2]
+    INNER JOIN [Users] AS [u1] ON [t2].[UserId] = [u1].[Id]
+) AS [t1] ON [t0].[Id] = [t1].[TeamId]
+LEFT JOIN (
+    SELECT [t4].[TeamId], [t4].[ProjectId], [p].[Id], [p].[ClientEmail], [p].[ClientName], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsBillable], [p].[Name], [p].[ProjectType], [p].[Status], [p].[UpdatedAt]
+    FROM [TeamProjects] AS [t4]
+    INNER JOIN [Projects] AS [p] ON [t4].[ProjectId] = [p].[Id]
+) AS [t3] ON [t0].[Id] = [t3].[TeamId]
+LEFT JOIN (
+    SELECT [t6].[TeamId], [t6].[ProductId], [p0].[Id], [p0].[CreatedAt], [p0].[CreatedBy], [p0].[IsBillable], [p0].[Name], [p0].[ProductDescription], [p0].[Status], [p0].[UpdatedAt]
+    FROM [TeamProducts] AS [t6]
+    INNER JOIN [Products] AS [p0] ON [t6].[ProductId] = [p0].[Id]
+) AS [t5] ON [t0].[Id] = [t5].[TeamId]
+LEFT JOIN (
+    SELECT [t8].[TeamId], [t8].[DepartmentId], [d0].[Id], [d0].[CreatedAt], [d0].[CreatedBy], [d0].[DepartmentDescription], [d0].[IsBillable], [d0].[Name], [d0].[Status], [d0].[UpdatedAt]
+    FROM [TeamDepartments] AS [t8]
+    INNER JOIN [Departments] AS [d0] ON [t8].[DepartmentId] = [d0].[Id]
+) AS [t7] ON [t0].[Id] = [t7].[TeamId]
+ORDER BY [t0].[Id], [t0].[Id0], [t0].[Id1], [t0].[Id2], [t1].[TeamId], [t1].[UserId], [t1].[Id], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t7].[TeamId], [t7].[DepartmentId]
+2025-09-04 13:58:12.618 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.TeamDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:58:12.621 +05:00 [INF] Executed action TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne) in 29.3649ms
+2025-09-04 13:58:12.630 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:58:12.638 +05:00 [INF] HTTP POST /api/teams responded 201 in 51.6299 ms
+2025-09-04 13:58:12.644 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/teams - 201 null application/json; charset=utf-8 64.1333ms
+2025-09-04 13:58:23.843 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/teams - application/json 154
+2025-09-04 13:58:23.848 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:58:23.850 +05:00 [INF] Route matched with {action = "CreateTeam", controller = "Teams"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.TeamDto]] CreateTeam(TimeTraceOne.DTOs.CreateTeamDto) on controller TimeTraceOne.Controllers.TeamsController (TimeTraceOne).
+2025-09-04 13:58:23.857 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Guid), @p3='?' (DbType = Guid), @p4='?' (Size = 2000), @p5='?' (DbType = Guid), @p6='?' (Size = 100), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Teams] ([Id], [CreatedAt], [CreatedBy], [DepartmentId], [Description], [LeaderId], [Name], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-09-04 13:58:23.861 +05:00 [INF] Created team "4ca12eb2-6686-4551-a805-b1b2507ef62d" with name Test Team 8
+2025-09-04 13:58:23.872 +05:00 [INF] Executed DbCommand (9ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[DepartmentId], [t0].[Description], [t0].[LeaderId], [t0].[Name], [t0].[UpdatedAt], [t0].[Id0], [t0].[CreatedAt0], [t0].[CreatedBy0], [t0].[DepartmentDescription], [t0].[IsBillable], [t0].[Name0], [t0].[Status], [t0].[UpdatedAt0], [t0].[Id1], [t0].[AvailableHours], [t0].[CreatedAt1], [t0].[Email], [t0].[IsActive], [t0].[JobTitle], [t0].[Name1], [t0].[PasswordHash], [t0].[Role], [t0].[UpdatedAt1], [t0].[Id2], [t0].[AvailableHours0], [t0].[CreatedAt2], [t0].[Email0], [t0].[IsActive0], [t0].[JobTitle0], [t0].[Name2], [t0].[PasswordHash0], [t0].[Role0], [t0].[UpdatedAt2], [t1].[TeamId], [t1].[UserId], [t1].[JoinedAt], [t1].[Id], [t1].[AvailableHours], [t1].[CreatedAt], [t1].[Email], [t1].[IsActive], [t1].[JobTitle], [t1].[Name], [t1].[PasswordHash], [t1].[Role], [t1].[UpdatedAt], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t3].[ClientEmail], [t3].[ClientName], [t3].[CreatedAt], [t3].[CreatedBy], [t3].[Description], [t3].[IsBillable], [t3].[Name], [t3].[ProjectType], [t3].[Status], [t3].[UpdatedAt], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t5].[CreatedAt], [t5].[CreatedBy], [t5].[IsBillable], [t5].[Name], [t5].[ProductDescription], [t5].[Status], [t5].[UpdatedAt], [t7].[TeamId], [t7].[DepartmentId], [t7].[Id], [t7].[CreatedAt], [t7].[CreatedBy], [t7].[DepartmentDescription], [t7].[IsBillable], [t7].[Name], [t7].[Status], [t7].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [t].[Id], [t].[CreatedAt], [t].[CreatedBy], [t].[DepartmentId], [t].[Description], [t].[LeaderId], [t].[Name], [t].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0], [u].[Id] AS [Id1], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt1], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name1], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt1], [u0].[Id] AS [Id2], [u0].[AvailableHours] AS [AvailableHours0], [u0].[CreatedAt] AS [CreatedAt2], [u0].[Email] AS [Email0], [u0].[IsActive] AS [IsActive0], [u0].[JobTitle] AS [JobTitle0], [u0].[Name] AS [Name2], [u0].[PasswordHash] AS [PasswordHash0], [u0].[Role] AS [Role0], [u0].[UpdatedAt] AS [UpdatedAt2]
+    FROM [Teams] AS [t]
+    INNER JOIN [Departments] AS [d] ON [t].[DepartmentId] = [d].[Id]
+    LEFT JOIN [Users] AS [u] ON [t].[LeaderId] = [u].[Id]
+    INNER JOIN [Users] AS [u0] ON [t].[CreatedBy] = [u0].[Id]
+    WHERE [t].[Id] = @__id_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [t2].[TeamId], [t2].[UserId], [t2].[JoinedAt], [u1].[Id], [u1].[AvailableHours], [u1].[CreatedAt], [u1].[Email], [u1].[IsActive], [u1].[JobTitle], [u1].[Name], [u1].[PasswordHash], [u1].[Role], [u1].[UpdatedAt]
+    FROM [TeamMembers] AS [t2]
+    INNER JOIN [Users] AS [u1] ON [t2].[UserId] = [u1].[Id]
+) AS [t1] ON [t0].[Id] = [t1].[TeamId]
+LEFT JOIN (
+    SELECT [t4].[TeamId], [t4].[ProjectId], [p].[Id], [p].[ClientEmail], [p].[ClientName], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsBillable], [p].[Name], [p].[ProjectType], [p].[Status], [p].[UpdatedAt]
+    FROM [TeamProjects] AS [t4]
+    INNER JOIN [Projects] AS [p] ON [t4].[ProjectId] = [p].[Id]
+) AS [t3] ON [t0].[Id] = [t3].[TeamId]
+LEFT JOIN (
+    SELECT [t6].[TeamId], [t6].[ProductId], [p0].[Id], [p0].[CreatedAt], [p0].[CreatedBy], [p0].[IsBillable], [p0].[Name], [p0].[ProductDescription], [p0].[Status], [p0].[UpdatedAt]
+    FROM [TeamProducts] AS [t6]
+    INNER JOIN [Products] AS [p0] ON [t6].[ProductId] = [p0].[Id]
+) AS [t5] ON [t0].[Id] = [t5].[TeamId]
+LEFT JOIN (
+    SELECT [t8].[TeamId], [t8].[DepartmentId], [d0].[Id], [d0].[CreatedAt], [d0].[CreatedBy], [d0].[DepartmentDescription], [d0].[IsBillable], [d0].[Name], [d0].[Status], [d0].[UpdatedAt]
+    FROM [TeamDepartments] AS [t8]
+    INNER JOIN [Departments] AS [d0] ON [t8].[DepartmentId] = [d0].[Id]
+) AS [t7] ON [t0].[Id] = [t7].[TeamId]
+ORDER BY [t0].[Id], [t0].[Id0], [t0].[Id1], [t0].[Id2], [t1].[TeamId], [t1].[UserId], [t1].[Id], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t7].[TeamId], [t7].[DepartmentId]
+2025-09-04 13:58:23.881 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.TeamDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:58:23.883 +05:00 [INF] Executed action TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne) in 29.995ms
+2025-09-04 13:58:23.889 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:58:23.894 +05:00 [INF] HTTP POST /api/teams responded 201 in 46.9388 ms
+2025-09-04 13:58:23.899 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/teams - 201 null application/json; charset=utf-8 55.8168ms
+2025-09-04 13:58:38.577 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/teams - application/json 154
+2025-09-04 13:58:38.583 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:58:38.586 +05:00 [INF] Route matched with {action = "CreateTeam", controller = "Teams"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.TeamDto]] CreateTeam(TimeTraceOne.DTOs.CreateTeamDto) on controller TimeTraceOne.Controllers.TeamsController (TimeTraceOne).
+2025-09-04 13:58:38.596 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Guid), @p3='?' (DbType = Guid), @p4='?' (Size = 2000), @p5='?' (DbType = Guid), @p6='?' (Size = 100), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Teams] ([Id], [CreatedAt], [CreatedBy], [DepartmentId], [Description], [LeaderId], [Name], [UpdatedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-09-04 13:58:38.603 +05:00 [INF] Created team "175d570c-a7cf-4324-ae19-a90f440b6244" with name Test Team 8
+2025-09-04 13:58:38.606 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[CreatedAt], [t0].[CreatedBy], [t0].[DepartmentId], [t0].[Description], [t0].[LeaderId], [t0].[Name], [t0].[UpdatedAt], [t0].[Id0], [t0].[CreatedAt0], [t0].[CreatedBy0], [t0].[DepartmentDescription], [t0].[IsBillable], [t0].[Name0], [t0].[Status], [t0].[UpdatedAt0], [t0].[Id1], [t0].[AvailableHours], [t0].[CreatedAt1], [t0].[Email], [t0].[IsActive], [t0].[JobTitle], [t0].[Name1], [t0].[PasswordHash], [t0].[Role], [t0].[UpdatedAt1], [t0].[Id2], [t0].[AvailableHours0], [t0].[CreatedAt2], [t0].[Email0], [t0].[IsActive0], [t0].[JobTitle0], [t0].[Name2], [t0].[PasswordHash0], [t0].[Role0], [t0].[UpdatedAt2], [t1].[TeamId], [t1].[UserId], [t1].[JoinedAt], [t1].[Id], [t1].[AvailableHours], [t1].[CreatedAt], [t1].[Email], [t1].[IsActive], [t1].[JobTitle], [t1].[Name], [t1].[PasswordHash], [t1].[Role], [t1].[UpdatedAt], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t3].[ClientEmail], [t3].[ClientName], [t3].[CreatedAt], [t3].[CreatedBy], [t3].[Description], [t3].[IsBillable], [t3].[Name], [t3].[ProjectType], [t3].[Status], [t3].[UpdatedAt], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t5].[CreatedAt], [t5].[CreatedBy], [t5].[IsBillable], [t5].[Name], [t5].[ProductDescription], [t5].[Status], [t5].[UpdatedAt], [t7].[TeamId], [t7].[DepartmentId], [t7].[Id], [t7].[CreatedAt], [t7].[CreatedBy], [t7].[DepartmentDescription], [t7].[IsBillable], [t7].[Name], [t7].[Status], [t7].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [t].[Id], [t].[CreatedAt], [t].[CreatedBy], [t].[DepartmentId], [t].[Description], [t].[LeaderId], [t].[Name], [t].[UpdatedAt], [d].[Id] AS [Id0], [d].[CreatedAt] AS [CreatedAt0], [d].[CreatedBy] AS [CreatedBy0], [d].[DepartmentDescription], [d].[IsBillable], [d].[Name] AS [Name0], [d].[Status], [d].[UpdatedAt] AS [UpdatedAt0], [u].[Id] AS [Id1], [u].[AvailableHours], [u].[CreatedAt] AS [CreatedAt1], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name] AS [Name1], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt] AS [UpdatedAt1], [u0].[Id] AS [Id2], [u0].[AvailableHours] AS [AvailableHours0], [u0].[CreatedAt] AS [CreatedAt2], [u0].[Email] AS [Email0], [u0].[IsActive] AS [IsActive0], [u0].[JobTitle] AS [JobTitle0], [u0].[Name] AS [Name2], [u0].[PasswordHash] AS [PasswordHash0], [u0].[Role] AS [Role0], [u0].[UpdatedAt] AS [UpdatedAt2]
+    FROM [Teams] AS [t]
+    INNER JOIN [Departments] AS [d] ON [t].[DepartmentId] = [d].[Id]
+    LEFT JOIN [Users] AS [u] ON [t].[LeaderId] = [u].[Id]
+    INNER JOIN [Users] AS [u0] ON [t].[CreatedBy] = [u0].[Id]
+    WHERE [t].[Id] = @__id_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [t2].[TeamId], [t2].[UserId], [t2].[JoinedAt], [u1].[Id], [u1].[AvailableHours], [u1].[CreatedAt], [u1].[Email], [u1].[IsActive], [u1].[JobTitle], [u1].[Name], [u1].[PasswordHash], [u1].[Role], [u1].[UpdatedAt]
+    FROM [TeamMembers] AS [t2]
+    INNER JOIN [Users] AS [u1] ON [t2].[UserId] = [u1].[Id]
+) AS [t1] ON [t0].[Id] = [t1].[TeamId]
+LEFT JOIN (
+    SELECT [t4].[TeamId], [t4].[ProjectId], [p].[Id], [p].[ClientEmail], [p].[ClientName], [p].[CreatedAt], [p].[CreatedBy], [p].[Description], [p].[IsBillable], [p].[Name], [p].[ProjectType], [p].[Status], [p].[UpdatedAt]
+    FROM [TeamProjects] AS [t4]
+    INNER JOIN [Projects] AS [p] ON [t4].[ProjectId] = [p].[Id]
+) AS [t3] ON [t0].[Id] = [t3].[TeamId]
+LEFT JOIN (
+    SELECT [t6].[TeamId], [t6].[ProductId], [p0].[Id], [p0].[CreatedAt], [p0].[CreatedBy], [p0].[IsBillable], [p0].[Name], [p0].[ProductDescription], [p0].[Status], [p0].[UpdatedAt]
+    FROM [TeamProducts] AS [t6]
+    INNER JOIN [Products] AS [p0] ON [t6].[ProductId] = [p0].[Id]
+) AS [t5] ON [t0].[Id] = [t5].[TeamId]
+LEFT JOIN (
+    SELECT [t8].[TeamId], [t8].[DepartmentId], [d0].[Id], [d0].[CreatedAt], [d0].[CreatedBy], [d0].[DepartmentDescription], [d0].[IsBillable], [d0].[Name], [d0].[Status], [d0].[UpdatedAt]
+    FROM [TeamDepartments] AS [t8]
+    INNER JOIN [Departments] AS [d0] ON [t8].[DepartmentId] = [d0].[Id]
+) AS [t7] ON [t0].[Id] = [t7].[TeamId]
+ORDER BY [t0].[Id], [t0].[Id0], [t0].[Id1], [t0].[Id2], [t1].[TeamId], [t1].[UserId], [t1].[Id], [t3].[TeamId], [t3].[ProjectId], [t3].[Id], [t5].[TeamId], [t5].[ProductId], [t5].[Id], [t7].[TeamId], [t7].[DepartmentId]
+2025-09-04 13:58:38.621 +05:00 [INF] Executing CreatedAtActionResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.TeamDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 13:58:38.628 +05:00 [INF] Executed action TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne) in 37.6996ms
+2025-09-04 13:58:38.639 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.TeamsController.CreateTeam (TimeTraceOne)'
+2025-09-04 13:58:38.646 +05:00 [INF] HTTP POST /api/teams responded 201 in 63.7572 ms
+2025-09-04 13:58:38.654 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/teams - 201 null application/json; charset=utf-8 76.2302ms
+2025-09-04 13:58:49.053 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/notifications - application/json 191
+2025-09-04 13:58:49.058 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.NotificationsController.CreateNotification (TimeTraceOne)'
+2025-09-04 13:58:49.062 +05:00 [INF] Route matched with {action = "CreateNotification", controller = "Notifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.NotificationDto]] CreateNotification(TimeTraceOne.DTOs.CreateNotificationDto) on controller TimeTraceOne.Controllers.NotificationsController (TimeTraceOne).
+2025-09-04 13:58:49.071 +05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-09-04 13:58:49.083 +05:00 [INF] Executed action TimeTraceOne.Controllers.NotificationsController.CreateNotification (TimeTraceOne) in 16.9321ms
+2025-09-04 13:58:49.086 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.NotificationsController.CreateNotification (TimeTraceOne)'
+2025-09-04 13:58:49.088 +05:00 [INF] HTTP POST /api/notifications responded 400 in 29.8583 ms
+2025-09-04 13:58:49.090 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/notifications - 400 null application/problem+json; charset=utf-8 36.9349ms
+2025-09-04 13:59:01.582 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/notifications - application/json 191
+2025-09-04 13:59:01.589 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.NotificationsController.CreateNotification (TimeTraceOne)'
+2025-09-04 13:59:01.593 +05:00 [INF] Route matched with {action = "CreateNotification", controller = "Notifications"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.NotificationDto]] CreateNotification(TimeTraceOne.DTOs.CreateNotificationDto) on controller TimeTraceOne.Controllers.NotificationsController (TimeTraceOne).
+2025-09-04 13:59:01.599 +05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-09-04 13:59:01.603 +05:00 [INF] Executed action TimeTraceOne.Controllers.NotificationsController.CreateNotification (TimeTraceOne) in 4.7645ms
+2025-09-04 13:59:01.606 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.NotificationsController.CreateNotification (TimeTraceOne)'
+2025-09-04 13:59:01.608 +05:00 [INF] HTTP POST /api/notifications responded 400 in 18.5941 ms
+2025-09-04 13:59:01.610 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/notifications - 400 null application/problem+json; charset=utf-8 28.0001ms

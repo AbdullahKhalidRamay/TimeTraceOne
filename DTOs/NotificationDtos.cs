@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using TimeTraceOne.Models;
 
 namespace TimeTraceOne.DTOs;
@@ -17,6 +18,7 @@ public class CreateNotificationDto
     public string Message { get; set; } = string.Empty;
     
     [Required]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public NotificationType Type { get; set; }
     
     public Guid? RelatedEntryId { get; set; }
@@ -36,6 +38,7 @@ public class NotificationDto : BaseDto
 
 public class NotificationFilterDto
 {
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public List<NotificationType>? Type { get; set; }
     public bool? IsRead { get; set; }
     public int Page { get; set; } = 1;

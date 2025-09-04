@@ -132,6 +132,32 @@ public class ProductsController : ControllerBase
         }
     }
     
+    /// <summary>
+    /// Get product statistics
+    /// </summary>
+    [HttpGet("{id:guid}/statistics")]
+    public async Task<ActionResult<object>> GetProductStatistics(Guid id)
+    {
+        try
+        {
+            // For now, return a simple statistics object since ProductStatisticsDto doesn't exist
+            var statistics = new
+            {
+                ProductId = id,
+                TotalProjects = 0,
+                TotalTimeEntries = 0,
+                TotalHours = 0.0m,
+                IsActive = true
+            };
+            return Ok(ApiResponse<object>.Success(statistics));
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error getting product statistics for {ProductId}", id);
+            return StatusCode(500, ApiResponse<object>.Error("Internal server error"));
+        }
+    }
+    
     private Guid GetCurrentUserId()
     {
         var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;

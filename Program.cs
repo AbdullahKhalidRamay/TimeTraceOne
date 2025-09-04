@@ -71,7 +71,7 @@ using (var scope = app.Services.CreateScope())
         }
         
         // Seed the database
-        await DatabaseSeeder.SeedAsync(context);
+        DatabaseSeeder.SeedAsync(context).Wait();
         Log.Information("Database seeded successfully");
     }
     catch (Exception ex)

@@ -1,0 +1,9 @@
+2025-09-04 12:40:44.501 +05:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-09-04 12:40:47.711 +05:00 [INF] Executed DbCommand (3,091ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [TimeTraceOne] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;
+2025-09-04 12:40:47.899 +05:00 [INF] Executed DbCommand (164ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+DROP DATABASE [TimeTraceOne];

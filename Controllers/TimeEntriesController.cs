@@ -76,7 +76,8 @@ public class TimeEntriesController : ControllerBase
         try
         {
             var userId = GetCurrentUserId();
-            var timeEntry = await _timeEntryService.UpdateTimeEntryAsync(id, dto, userId);
+            var userRole = GetCurrentUserRole();
+            var timeEntry = await _timeEntryService.UpdateTimeEntryAsync(id, dto, userId, userRole);
             return Ok(ApiResponse<TimeEntryDto>.Success(timeEntry, "Time entry updated successfully"));
         }
         catch (InvalidOperationException ex)
@@ -96,7 +97,8 @@ public class TimeEntriesController : ControllerBase
         try
         {
             var userId = GetCurrentUserId();
-            await _timeEntryService.DeleteTimeEntryAsync(id, userId);
+            var userRole = GetCurrentUserRole();
+            await _timeEntryService.DeleteTimeEntryAsync(id, userId, userRole);
             return Ok(ApiResponse<string>.Success("Time entry deleted successfully"));
         }
         catch (InvalidOperationException ex)
@@ -312,6 +314,12 @@ public class TimeEntriesController : ControllerBase
             throw new UnauthorizedAccessException("Invalid user token");
         }
         return userId;
+    }
+    
+    private string GetCurrentUserRole()
+    {
+        var roleClaim = User.FindFirst(ClaimTypes.Role)?.Value;
+        return roleClaim ?? "Employee";
     }
 }
 
