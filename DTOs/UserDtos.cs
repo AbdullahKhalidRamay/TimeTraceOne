@@ -21,7 +21,7 @@ public class CreateUserDto
     
     [Required]
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    public UserRole Role { get; set; } = UserRole.Employee;
+    public UserRole Role { get; set; } = UserRole.employee;
     
     [MaxLength(100)]
     public string? JobTitle { get; set; }

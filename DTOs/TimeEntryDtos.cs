@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using TimeTraceOne.Models;
 
 namespace TimeTraceOne.DTOs;
@@ -62,6 +63,7 @@ public class TimeEntryDto : BaseDto
     public string Task { get; set; } = string.Empty;
     public ProjectDetailsDto ProjectDetails { get; set; } = null!;
     public bool IsBillable { get; set; }
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public EntryStatus Status { get; set; }
 }
 
@@ -70,6 +72,7 @@ public class TimeEntryFilterDto
     public Guid? UserId { get; set; }
     public DateTime? StartDate { get; set; }
     public DateTime? EndDate { get; set; }
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public List<EntryStatus>? Status { get; set; }
     public bool? IsBillable { get; set; }
     public string? Search { get; set; }

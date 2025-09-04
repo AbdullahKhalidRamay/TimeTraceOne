@@ -17,7 +17,7 @@ public class User : BaseEntity
     [MaxLength(255)]
     public string PasswordHash { get; set; } = string.Empty;
     
-    public UserRole Role { get; set; } = UserRole.Employee;
+    public UserRole Role { get; set; } = UserRole.employee;
     
     [MaxLength(100)]
     public string? JobTitle { get; set; }

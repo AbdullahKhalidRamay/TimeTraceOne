@@ -129,7 +129,7 @@ public class ValidationService : IValidationService
         if (user == null) return false;
         
         // Owner and Manager have access to everything
-        if (user.Role == UserRole.owner || user.Role == UserRole.Manager)
+        if (user.Role == UserRole.owner || user.Role == UserRole.manager)
             return true;
         
         // Employee access depends on resource type and ownership
@@ -154,7 +154,7 @@ public class ValidationService : IValidationService
         if (user == null) return false;
         
         // Owner and Manager have access to all teams
-        if (user.Role == UserRole.owner || user.Role == UserRole.Manager)
+        if (user.Role == UserRole.owner || user.Role == UserRole.manager)
             return true;
         
         // Employee must be a member of the team
@@ -167,7 +167,7 @@ public class ValidationService : IValidationService
         if (user == null) return false;
         
         // Owner and Manager have access to all projects
-        if (user.Role == UserRole.owner || user.Role == UserRole.Manager)
+        if (user.Role == UserRole.owner || user.Role == UserRole.manager)
             return true;
         
         // Employee must be creator or team member
@@ -181,7 +181,7 @@ public class ValidationService : IValidationService
         if (currentUser == null) return false;
         
         // Owner and Manager have access to all users
-        if (currentUser.Role == UserRole.owner || currentUser.Role == UserRole.Manager)
+        if (currentUser.Role == UserRole.owner || currentUser.Role == UserRole.manager)
             return true;
         
         // Employee can only access their own data

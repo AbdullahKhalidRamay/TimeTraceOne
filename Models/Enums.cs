@@ -2,8 +2,8 @@ namespace TimeTraceOne.Models;
 
 public enum UserRole
 {
-    Employee,
-    Manager,
+    employee,
+    manager,
     owner
 }
 
