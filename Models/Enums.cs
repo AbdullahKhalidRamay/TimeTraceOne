@@ -4,7 +4,7 @@ public enum UserRole
 {
     Employee,
     Manager,
-    Owner
+    owner
 }
 
 public enum EntryStatus

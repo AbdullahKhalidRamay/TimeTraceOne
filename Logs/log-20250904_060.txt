@@ -1,0 +1,101 @@
+2025-09-04 17:10:40.484 +05:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-09-04 17:10:40.599 +05:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-09-04 17:10:40.633 +05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-09-04 17:10:40.930 +05:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 17:10:40.954 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Departments] AS [d]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 17:10:40.968 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Projects] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 17:10:40.984 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Teams] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 17:10:40.997 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 17:10:41.061 +05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[ActualHours], [t].[AvailableHours], [t].[BillableHours], [t].[CreatedAt], [t].[Date], [t].[IsBillable], [t].[ProjectDetails], [t].[Status], [t].[Task], [t].[TotalHours], [t].[UpdatedAt], [t].[UserId]
+FROM [TimeEntries] AS [t]
+2025-09-04 17:10:42.253 +05:00 [INF] Executed DbCommand (368ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [TimeEntries]
+OUTPUT 1
+WHERE [Id] = @p0;
+DELETE FROM [TimeEntries]
+OUTPUT 1
+WHERE [Id] = @p1;
+2025-09-04 17:10:42.438 +05:00 [INF] Executed DbCommand (45ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p2='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p3='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Boolean), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (Size = 1000), @p10='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p11='?' (DbType = DateTime2), @p12='?' (DbType = Guid), @p13='?' (DbType = Guid), @p14='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p15='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p16='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p17='?' (DbType = DateTime2), @p18='?' (DbType = DateTime2), @p19='?' (DbType = Boolean), @p20='?' (Size = 4000), @p21='?' (Size = 4000), @p22='?' (Size = 1000), @p23='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p24='?' (DbType = DateTime2), @p25='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [TimeEntries] ([Id], [ActualHours], [AvailableHours], [BillableHours], [CreatedAt], [Date], [IsBillable], [ProjectDetails], [Status], [Task], [TotalHours], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12),
+(@p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25);
+2025-09-04 17:10:42.497 +05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[CreatedAt], [n].[IsRead], [n].[Message], [n].[RelatedEntryId], [n].[Title], [n].[Type], [n].[UpdatedAt], [n].[UserId]
+FROM [Notifications] AS [n]
+2025-09-04 17:10:42.603 +05:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Notifications]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-09-04 17:10:42.677 +05:00 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 2000), @p4='?' (DbType = Guid), @p5='?' (Size = 200), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Notifications] ([Id], [CreatedAt], [IsRead], [Message], [RelatedEntryId], [Title], [Type], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2025-09-04 17:10:42.697 +05:00 [INF] Database seeded successfully
+2025-09-04 17:10:42.773 +05:00 [INF] User profile is available. Using 'C:\Users\PMLS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-09-04 17:10:43.216 +05:00 [INF] Now listening on: http://localhost:5155
+2025-09-04 17:10:43.454 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-04 17:10:43.472 +05:00 [INF] Hosting environment: Development
+2025-09-04 17:10:43.485 +05:00 [INF] Content root path: D:\project\TimeTraceOne
+2025-09-04 17:10:44.440 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_vs/browserLink - null null
+2025-09-04 17:10:44.440 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-04 17:10:44.520 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 16509 application/javascript; charset=utf-8 81.3876ms
+2025-09-04 17:10:44.606 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_vs/browserLink - 200 null text/javascript; charset=UTF-8 179.272ms
+2025-09-04 17:10:47.301 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/auth/login - null null
+2025-09-04 17:10:47.439 +05:00 [INF] CORS policy execution successful.
+2025-09-04 17:10:47.447 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/auth/login - 204 null null 147.8714ms
+2025-09-04 17:10:47.460 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/auth/login - application/json 53
+2025-09-04 17:10:47.479 +05:00 [INF] CORS policy execution successful.
+2025-09-04 17:10:47.628 +05:00 [INF] Executing endpoint 'TimeTraceOne.Controllers.AuthController.Login (TimeTraceOne)'
+2025-09-04 17:10:47.663 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TimeTraceOne.DTOs.ApiResponse`1[TimeTraceOne.DTOs.LoginResponseDto]]] Login(TimeTraceOne.DTOs.LoginRequestDto) on controller TimeTraceOne.Controllers.AuthController (TimeTraceOne).
+2025-09-04 17:10:47.860 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__request_Email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AvailableHours], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[JobTitle], [u].[Name], [u].[PasswordHash], [u].[Role], [u].[UpdatedAt]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0 AND [u].[IsActive] = CAST(1 AS bit)
+2025-09-04 17:10:48.372 +05:00 [INF] User admin@timeflow.com logged in successfully
+2025-09-04 17:10:48.400 +05:00 [INF] Executing OkObjectResult, writing value of type 'TimeTraceOne.DTOs.ApiResponse`1[[TimeTraceOne.DTOs.LoginResponseDto, TimeTraceOne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-09-04 17:10:48.487 +05:00 [INF] Executed action TimeTraceOne.Controllers.AuthController.Login (TimeTraceOne) in 805.9767ms
+2025-09-04 17:10:48.494 +05:00 [INF] Executed endpoint 'TimeTraceOne.Controllers.AuthController.Login (TimeTraceOne)'
+2025-09-04 17:10:48.504 +05:00 [INF] HTTP POST /api/auth/login responded 200 in 999.3669 ms
+2025-09-04 17:10:48.521 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/auth/login - 200 null application/json; charset=utf-8 1060.349ms

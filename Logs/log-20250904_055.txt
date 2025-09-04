@@ -1,0 +1,220 @@
+2025-09-04 16:23:49.528 +05:00 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-09-04 16:23:49.618 +05:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-09-04 16:23:49.652 +05:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-09-04 16:23:49.847 +05:00 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 16:23:49.865 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Departments] AS [d]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 16:23:49.887 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Projects] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 16:23:49.912 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Teams] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 16:23:49.947 +05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 16:23:50.030 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[ActualHours], [t].[AvailableHours], [t].[BillableHours], [t].[CreatedAt], [t].[Date], [t].[IsBillable], [t].[ProjectDetails], [t].[Status], [t].[Task], [t].[TotalHours], [t].[UpdatedAt], [t].[UserId]
+FROM [TimeEntries] AS [t]
+2025-09-04 16:23:50.344 +05:00 [INF] Executed DbCommand (61ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [TimeEntries]
+OUTPUT 1
+WHERE [Id] = @p0;
+DELETE FROM [TimeEntries]
+OUTPUT 1
+WHERE [Id] = @p1;
+2025-09-04 16:23:50.413 +05:00 [INF] Executed DbCommand (19ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p2='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p3='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Boolean), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (Size = 1000), @p10='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p11='?' (DbType = DateTime2), @p12='?' (DbType = Guid), @p13='?' (DbType = Guid), @p14='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p15='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p16='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p17='?' (DbType = DateTime2), @p18='?' (DbType = DateTime2), @p19='?' (DbType = Boolean), @p20='?' (Size = 4000), @p21='?' (Size = 4000), @p22='?' (Size = 1000), @p23='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p24='?' (DbType = DateTime2), @p25='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [TimeEntries] ([Id], [ActualHours], [AvailableHours], [BillableHours], [CreatedAt], [Date], [IsBillable], [ProjectDetails], [Status], [Task], [TotalHours], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12),
+(@p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25);
+2025-09-04 16:23:50.440 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[CreatedAt], [n].[IsRead], [n].[Message], [n].[RelatedEntryId], [n].[Title], [n].[Type], [n].[UpdatedAt], [n].[UserId]
+FROM [Notifications] AS [n]
+2025-09-04 16:23:50.499 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Notifications]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-09-04 16:23:50.544 +05:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 2000), @p4='?' (DbType = Guid), @p5='?' (Size = 200), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Notifications] ([Id], [CreatedAt], [IsRead], [Message], [RelatedEntryId], [Title], [Type], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2025-09-04 16:23:50.563 +05:00 [INF] Database seeded successfully
+2025-09-04 16:23:50.614 +05:00 [INF] User profile is available. Using 'C:\Users\PMLS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-09-04 16:23:50.866 +05:00 [INF] Now listening on: http://localhost:5155
+2025-09-04 16:23:50.942 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-04 16:23:50.956 +05:00 [INF] Hosting environment: Development
+2025-09-04 16:23:50.963 +05:00 [INF] Content root path: D:\project\TimeTraceOne
+2025-09-04 16:23:51.687 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger - null null
+2025-09-04 16:23:51.944 +05:00 [INF] No cached response available for this request.
+2025-09-04 16:23:52.119 +05:00 [INF] Executing endpoint 'Fallback {*path:nonfile}'
+2025-09-04 16:23:52.146 +05:00 [INF] The file /index.html was not modified
+2025-09-04 16:23:52.153 +05:00 [INF] Executed endpoint 'Fallback {*path:nonfile}'
+2025-09-04 16:23:52.158 +05:00 [INF] HTTP GET /index.html responded 304 in 200.2456 ms
+2025-09-04 16:23:52.165 +05:00 [INF] The response could not be cached for this request.
+2025-09-04 16:23:52.192 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/index.html - 304 null text/html 518.4497ms
+2025-09-04 16:23:52.205 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_vs/browserLink - null null
+2025-09-04 16:23:52.241 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-04 16:23:52.272 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 16509 application/javascript; charset=utf-8 31.3619ms
+2025-09-04 16:23:52.297 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_vs/browserLink - 200 null text/javascript; charset=UTF-8 92.2875ms
+2025-09-04 16:23:56.547 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/index.html - null null
+2025-09-04 16:23:56.698 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/index.html - 200 null text/html;charset=utf-8 151.3511ms
+2025-09-04 16:23:56.734 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-04 16:23:56.736 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_vs/browserLink - null null
+2025-09-04 16:23:56.757 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 16509 application/javascript; charset=utf-8 22.4553ms
+2025-09-04 16:23:56.775 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.3109ms
+2025-09-04 16:23:56.865 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-09-04 16:23:57.072 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 207.0051ms
+2025-09-04 16:24:05.498 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/auth/login - null null
+2025-09-04 16:24:05.535 +05:00 [INF] No CORS policy found for the specified request.
+2025-09-04 16:24:05.549 +05:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2025-09-04 16:24:05.562 +05:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2025-09-04 16:24:05.584 +05:00 [INF] HTTP OPTIONS /api/auth/login responded 405 in 39.3129 ms
+2025-09-04 16:24:05.594 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/auth/login - 405 0 null 96.182ms
+2025-09-04 16:24:06.917 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/auth/login - null null
+2025-09-04 16:24:06.936 +05:00 [INF] No CORS policy found for the specified request.
+2025-09-04 16:24:06.955 +05:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2025-09-04 16:24:06.966 +05:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2025-09-04 16:24:06.977 +05:00 [INF] HTTP OPTIONS /api/auth/login responded 405 in 28.8789 ms
+2025-09-04 16:24:06.995 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/auth/login - 405 0 null 78.4995ms
+2025-09-04 16:24:19.451 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/auth/login - null null
+2025-09-04 16:24:19.483 +05:00 [INF] No CORS policy found for the specified request.
+2025-09-04 16:24:19.494 +05:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2025-09-04 16:24:19.506 +05:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2025-09-04 16:24:19.511 +05:00 [INF] HTTP OPTIONS /api/auth/login responded 405 in 16.8504 ms
+2025-09-04 16:24:19.524 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/auth/login - 405 0 null 72.5088ms
+2025-09-04 16:25:17.862 +05:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-09-04 16:25:17.946 +05:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-09-04 16:25:17.961 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-09-04 16:25:18.095 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 16:25:18.116 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Departments] AS [d]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 16:25:18.131 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Projects] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 16:25:18.145 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Teams] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 16:25:18.160 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-09-04 16:25:18.195 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[ActualHours], [t].[AvailableHours], [t].[BillableHours], [t].[CreatedAt], [t].[Date], [t].[IsBillable], [t].[ProjectDetails], [t].[Status], [t].[Task], [t].[TotalHours], [t].[UpdatedAt], [t].[UserId]
+FROM [TimeEntries] AS [t]
+2025-09-04 16:25:18.463 +05:00 [INF] Executed DbCommand (34ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [TimeEntries]
+OUTPUT 1
+WHERE [Id] = @p0;
+DELETE FROM [TimeEntries]
+OUTPUT 1
+WHERE [Id] = @p1;
+2025-09-04 16:25:18.513 +05:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p2='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p3='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Boolean), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (Size = 1000), @p10='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p11='?' (DbType = DateTime2), @p12='?' (DbType = Guid), @p13='?' (DbType = Guid), @p14='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p15='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p16='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p17='?' (DbType = DateTime2), @p18='?' (DbType = DateTime2), @p19='?' (DbType = Boolean), @p20='?' (Size = 4000), @p21='?' (Size = 4000), @p22='?' (Size = 1000), @p23='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p24='?' (DbType = DateTime2), @p25='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [TimeEntries] ([Id], [ActualHours], [AvailableHours], [BillableHours], [CreatedAt], [Date], [IsBillable], [ProjectDetails], [Status], [Task], [TotalHours], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12),
+(@p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25);
+2025-09-04 16:25:18.539 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[CreatedAt], [n].[IsRead], [n].[Message], [n].[RelatedEntryId], [n].[Title], [n].[Type], [n].[UpdatedAt], [n].[UserId]
+FROM [Notifications] AS [n]
+2025-09-04 16:25:18.574 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Notifications]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-09-04 16:25:18.596 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 2000), @p4='?' (DbType = Guid), @p5='?' (Size = 200), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Notifications] ([Id], [CreatedAt], [IsRead], [Message], [RelatedEntryId], [Title], [Type], [UpdatedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2025-09-04 16:25:18.622 +05:00 [INF] Database seeded successfully
+2025-09-04 16:25:18.668 +05:00 [INF] User profile is available. Using 'C:\Users\PMLS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-09-04 16:25:18.841 +05:00 [INF] Now listening on: http://localhost:5155
+2025-09-04 16:25:18.884 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/auth/login - null null
+2025-09-04 16:25:18.927 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-04 16:25:18.932 +05:00 [INF] Hosting environment: Development
+2025-09-04 16:25:18.943 +05:00 [INF] Content root path: D:\project\TimeTraceOne
+2025-09-04 16:25:18.979 +05:00 [INF] No CORS policy found for the specified request.
+2025-09-04 16:25:19.069 +05:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2025-09-04 16:25:19.080 +05:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2025-09-04 16:25:19.093 +05:00 [INF] HTTP OPTIONS /api/auth/login responded 405 in 95.1924 ms
+2025-09-04 16:25:19.123 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/auth/login - 405 0 null 248.2271ms
+2025-09-04 16:25:19.601 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_vs/browserLink - null null
+2025-09-04 16:25:19.601 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-09-04 16:25:19.703 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 16509 application/javascript; charset=utf-8 68.0651ms
+2025-09-04 16:25:19.771 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_vs/browserLink - 200 null text/javascript; charset=UTF-8 170.0153ms
+2025-09-04 16:25:27.463 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/auth/login - null null
+2025-09-04 16:25:27.502 +05:00 [INF] No CORS policy found for the specified request.
+2025-09-04 16:25:27.508 +05:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2025-09-04 16:25:27.512 +05:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2025-09-04 16:25:27.518 +05:00 [INF] HTTP OPTIONS /api/auth/login responded 405 in 11.9455 ms
+2025-09-04 16:25:27.524 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/auth/login - 405 0 null 60.8199ms
+2025-09-04 16:26:46.975 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5155/api/auth/login - null null
+2025-09-04 16:26:47.013 +05:00 [INF] No CORS policy found for the specified request.
+2025-09-04 16:26:47.029 +05:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2025-09-04 16:26:47.037 +05:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2025-09-04 16:26:47.044 +05:00 [INF] HTTP OPTIONS /api/auth/login responded 405 in 19.9808 ms
+2025-09-04 16:26:47.074 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5155/api/auth/login - 405 0 null 98.3024ms

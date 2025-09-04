@@ -42,12 +42,24 @@ public static class ServiceCollectionExtensions
             options.AddPolicy("AllowSpecificOrigins", policy =>
             {
                 var allowedOrigins = configuration.GetSection("Cors:AllowedOrigins").Get<string[]>();
-                if (allowedOrigins != null)
+                if (allowedOrigins != null && allowedOrigins.Length > 0)
                 {
                     policy.WithOrigins(allowedOrigins)
                           .AllowAnyMethod()
                           .AllowAnyHeader()
-                          .AllowCredentials();
+                          .AllowCredentials()
+                          .SetPreflightMaxAge(TimeSpan.FromHours(24)); // Cache preflight for 24 hours
+                }
+                else
+                {
+                    // Fallback for development - allow all localhost origins
+                    policy.SetIsOriginAllowed(origin => 
+                        origin.StartsWith("http://localhost:") || 
+                        origin.StartsWith("https://localhost:"))
+                          .AllowAnyMethod()
+                          .AllowAnyHeader()
+                          .AllowCredentials()
+                          .SetPreflightMaxAge(TimeSpan.FromHours(24)); // Cache preflight for 24 hours
                 }
             });
         });

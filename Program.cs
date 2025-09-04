@@ -3,8 +3,19 @@ using Serilog;
 using TimeTraceOne.Data;
 using TimeTraceOne.Extensions;
 
-var builder = WebApplication.CreateBuilder(args);
 
+var builder = WebApplication.CreateBuilder(args);
+// Add CORS policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost8080",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:8080") // only allow frontend on port 8080
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
 // Configure Serilog
 builder.Host.UseSerilog((context, services, configuration) => configuration
     .ReadFrom.Configuration(context.Configuration)
@@ -40,9 +51,7 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = string.Empty; // Serve Swagger UI at root
     });
 }
-
-// Use CORS
-app.UseCors("AllowSpecificOrigins");
+app.UseCors("AllowLocalhost8080");
 
 // Use response caching
 app.UseResponseCaching();
@@ -50,12 +59,18 @@ app.UseResponseCaching();
 // Use Serilog
 app.UseSerilogRequestLogging();
 
+// Serve static files (for frontend)
+app.UseStaticFiles();
+
 // Use authentication and authorization
 app.UseAuthentication();
 app.UseAuthorization();
 
 // Map controllers
 app.MapControllers();
+
+// SPA fallback - serve index.html for unmatched routes
+app.MapFallbackToFile("index.html");
 
 // Ensure database is created and seeded
 using (var scope = app.Services.CreateScope())

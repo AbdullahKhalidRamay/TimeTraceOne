@@ -1,5 +1,7 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using TimeTraceOne.Models;
+
 
 namespace TimeTraceOne.DTOs;
 
@@ -37,11 +39,15 @@ public class LogoutRequestDto
     public string RefreshToken { get; set; } = string.Empty;
 }
 
+
 public class UserDto : BaseDto
 {
     public string Name { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
+
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public UserRole Role { get; set; }
+
     public string? JobTitle { get; set; }
     public decimal AvailableHours { get; set; }
     public bool IsActive { get; set; }
